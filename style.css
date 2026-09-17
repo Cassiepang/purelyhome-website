@@ -1742,11 +1742,10 @@ z
 }
 
 .cart-item img{
-    width:78px;
-    height:78px;
-    object-fit:cover;
-    border-radius:16px;
-    background:#faf7f2;
+    width: 88px;
+    height: 88px;
+    object-fit: cover;
+    border-radius: 16px;
 }
 
 .cart-info{
@@ -1862,17 +1861,25 @@ z
     visibility: visible;
 }
 .cart-drawer{
-  position: fixed !important;
-  top: 0;
-  right: -100%;
-   /* ⭐ 不要用 100vh */
-  background: #fff;
-  box-shadow: -10px 0 30px rgba(0,0,0,.15);
-  transition: right .35s ease;
-  z-index: 99999;
+    position: fixed !important;
+    top: 0;
+    right: -100%;
 
-  display: flex;
-  flex-direction: column;
+    width: 420px;          /* ⭐ Desktop 宽一点 */
+    max-width: 92vw;       /* 手机不会爆 */
+
+    height: 100%;
+    background: #FDFBF7;
+    box-shadow: -10px 0 30px rgba(0,0,0,.08);
+
+    transition: right .35s ease;
+    z-index: 99999;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 28px;
+    box-sizing: border-box;
 }
 
 .cart-drawer.open{
