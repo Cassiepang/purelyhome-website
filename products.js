@@ -48,11 +48,11 @@ function getLocalImage(product){
 
   const name = (product.name || "").toLowerCase();
 
-  if(name.includes("white")) return "images/product2.jpeg";
-  if(name.includes("freesia")) return "images/freesia.jpeg";
-  if(name.includes("amber")) return "images/amber.jpeg";
+  if(name.includes("white")) return "Images/product2.jpeg";
+  if(name.includes("freesia")) return "Images/freesia.jpeg";
+  if(name.includes("amber")) return "Images/amber.jpeg";
 
-  return "images/wt.jpeg";
+  return "Images/wt.jpeg";
 }
 
 /* ==========================================
