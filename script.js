@@ -159,7 +159,7 @@ if (whiteTea) {
 
   
   // 图片
-  section.querySelector(".product-image").src = "images/product2.jpeg";
+  section.querySelector(".product-image").src = "Images/product2.jpeg";
 }
 
 // ===== Signature Scent Cards =====
@@ -186,22 +186,22 @@ card.querySelector(".card-price").textContent =
 
 // White Tea (洗衣片)
 if (product.name === "White Tea Signature") {
-  card.querySelector(".card-image").src = "images/wt.jpeg";
+  card.querySelector(".card-image").src = "Images/wt.jpeg";
 }
 
 // White Musk 留香珠
 if (product.name === "White Tea Laundry Sheet") {
-  card.querySelector(".card-image").src = "images/product2.jpeg";
+  card.querySelector(".card-image").src = "Images/product2.jpeg";
 }
 
 // Freesia 留香珠
 if (product.name === "Freesia Bloom") {
-  card.querySelector(".card-image").src = "images/freesia.jpeg";
+  card.querySelector(".card-image").src = "Images/freesia.jpeg";
 }
 
 // Amber 留香珠
 if (product.name === "Amber Neroli") {
-  card.querySelector(".card-image").src = "images/amber.jpeg";
+  card.querySelector(".card-image").src = "Images/amber.jpeg";
 }
 });
 }
