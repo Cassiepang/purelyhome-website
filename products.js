@@ -220,7 +220,7 @@ addBtn.onclick = ()=>{
 
   document.getElementById("modalTitle").textContent = "Add Product";
 
-  previewImage.src = "images/wt.jpeg";
+  previewImage.src = "Images/wt.jpeg";
 
   nameInput.value = "";
   priceInput.value = "";
