@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PurelyHome | Checkout</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+    /* 所有元素不会因为 padding 把宽度撑出去 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 不允许页面横向滚动 */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.checkout-page{
+    max-width:1200px;
+    margin:auto;
+    padding:60px 40px;
+}
+
+.checkout-title{
+    text-align:center;
+    font-size:48px;
+    margin-bottom:50px;
+    font-weight:400;
+}
+
+.checkout-container{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:60px;
+}
+
+.checkout-form h3,
+.order-summary h3{
+    font-size:26px;
+    margin-bottom:24px;
+    font-weight:500;
+}
+
+.input-group{
+    margin-bottom:20px;
+}
+
+.input-group label{
+    display:block;
+    font-size:14px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin-bottom:8px;
+    color:#857F74;
+}
+
+.input-group input,
+.input-group textarea{
+    width:100%;
+    box-sizing:border-box;
+    padding:16px 18px;
+    border:1px solid #E7E0D6;
+    border-radius:14px;
+    background:white;
+    font-size:15px;
+    color:#555;
+    outline:none;
+}
+
+.input-group textarea{
+    resize:none;
+    height:110px;
+}
+
+.row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.order-summary{
+    background:white;
+    border-radius:22px;
+    padding:28px;
+    height:fit-content;
+    box-shadow:0 8px 30px rgba(0,0,0,.04);
+}
+
+.summary-item{
+    display:flex;
+    gap:15px;
+    margin-bottom:22px;
+    align-items:center;
+}
+
+.summary-item img{
+    width:78px;
+    height:78px;
+    border-radius:18px;
+    object-fit:cover;
+    background:#F6F2EC;
+}
+
+.summary-item h4{
+    margin:0;
+    font-size:20px;
+    font-weight:500;
+}
+
+.summary-item p{
+    margin:6px 0;
+    font-size:15px;
+    color:#8C857A;
+}
+
+.summary-price{
+    margin-left:auto;
+    font-size:18px;
+}
+
+.summary-line{
+    display:flex;
+    justify-content:space-between;
+    margin:14px 0;
+    color:#756F66;
+}
+
+.summary-total{
+    display:flex;
+    justify-content:space-between;
+    font-size:24px;
+    margin-top:25px;
+    padding-top:25px;
+    border-top:1px solid #ECE6DD;
+}
+
+.place-order{
+    width:calc(100% -32px);
+    margin:30px 16px 0;
+    padding:15px;
+    border:none;
+    border-radius:999px;
+    background:#C9C673;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.place-order:hover{
+    background:#B7B35F;
+}
+
+.back-shopping{
+    display:inline-block;
+    margin-bottom:35px;
+    text-decoration:none;
+    color:#8C857A;
+    font-size:15px;
+}
+
+@media(max-width:900px){
+
+.checkout-page{
+    padding:30px 20px;
+}
+
+.checkout-container{
+    grid-template-columns:1fr;
+}
+
+.checkout-title{
+    font-size:38px;
+}
+
+}
+
+/* ========================================
+   PURELYHOME STATE DROPDOWN
+======================================== */
+
+#state{
+    width:100%;
+    height:56px;
+
+    padding:0 18px;
+    padding-right:48px;
+
+    border:1px solid #EDE7DE;
+    border-radius:18px;
+
+    background:#FFFCF8;
+    color:#5E4D3C;
+
+    font-size:15px;
+    font-family:'Inter', sans-serif;
+
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+
+    cursor:pointer;
+    transition:all .25s ease;
+
+    /* Gold arrow */
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23B38B59' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right 18px center;
+    background-size:18px;
+}
+
+/* Hover */
+#state:hover{
+    border-color:#DCC9A6;
+}
+
+/* Click / Focus */
+#state:focus{
+    outline:none;
+    border-color:#C69B63;
+    box-shadow:0 0 0 4px rgba(198,155,99,.12);
+}
+
+/* Option style */
+#state option{
+    color:#5E4D3C;
+    background:#FFFDFB;
+    font-size:15px;
+}
+
+/* Placeholder color */
+#state:invalid{
+    color:#A89A8A;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="checkout-page">
+
+<a href="index.html" class="back-shopping">← Continue Shopping</a>
+
+<h1 class="checkout-title">Checkout</h1>
+
+<div class="checkout-container">
+
+    <!-- LEFT -->
+
+    <div class="checkout-form">
+
+        <h3>Contact Information</h3>
+
+        <div class="input-group">
+            <label>Full Name</label>
+            <input id="fullName" type="text" placeholder="Your Name">
+        </div>
+
+        <div class="row">
+
+            <div class="input-group">
+                <label>Email</label>
+                <input id="email" placeholder="example@gmail.com">
+            </div>
+
+            <div class="input-group">
+                <label>Phone Number</label>
+                <input id="phone" type="tel" placeholder="014-3456789">
+            </div>
+
+        </div>
+
+        <h3 style="margin-top:45px;">Shipping Address</h3>
+
+        <div class="input-group">
+            <label>Street Address</label>
+            <input type="text" placeholder="House / Apartment / Street">
+        </div>
+
+        <div class="row">
+
+            <div class="input-group">
+                <label>City</label>
+                <input type="text" placeholder="Kuala Lumpur">
+            </div>
+
+            <div class="input-group">
+                <label>Postcode</label>
+                <input type="text" placeholder="43000">
+            </div>
+
+        </div>
+<div class="input-group">
+  <label>State</label>
+
+  <select id="state">
+    <option value="">Select State</option>
+
+    <option>Johor</option>
+    <option>Kedah</option>
+    <option>Kelantan</option>
+    <option>Melaka</option>
+    <option>Negeri Sembilan</option>
+    <option>Pahang</option>
+    <option>Penang</option>
+    <option>Perak</option>
+    <option>Perlis</option>
+    <option>Selangor</option>
+    <option>Terengganu</option>
+    <option>Kuala Lumpur</option>
+    <option>Putrajaya</option>
+
+    <option>Sabah</option>
+    <option>Sarawak</option>
+    <option>Labuan</option>
+  </select>
+</div>
+        <div class="input-group">
+            <label>Order Notes</label>
+            <textarea id="orderNotes" placeholder="Optional..."></textarea>
+        </div>
+
+    </div>
+
+    <!-- RIGHT -->
+
+    <div class="order-summary">
+  <h3>Your Order</h3>
+
+  <p>Order ID: <span id="order-id">#-</span></p>
+
+  <!-- 一定要是 order-items -->
+  <div id="order-items"></div>
+
+ <div id="order-items"></div>
+
+<div class="summary-line">
+    <span>Items Total</span>
+    <span id="items-total">RM0.00</span>
+</div>
+
+<div class="summary-line">
+    <span>Shipping</span>
+    <span id="shipping-price">RM0.00</span>
+</div>
+
+
+<div class="summary-total">
+    <span>Total</span>
+    <strong id="order-total">RM0.00</strong>
+</div>
+
+<p class="shipping-note">
+    🚚 Free shipping on East Malaysia orders over RM120.
+</p>
+
+  <button class="place-order">Place Order</button>
+</div>
+
+</div>
+
+</div>
+<script type="module">
+import { supabase } from "./supabase.js";
+import { sendOrderEmail } from "./email.js";
+function generateOrderId() {
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  let id = "PH-";
+
+  for (let i = 0; i < 6; i++) {
+    id += chars[Math.floor(Math.random() * chars.length)];
+  }
+
+  return id;
+}
+
+
+/* -------------------------
+   Order ID
+-------------------------- */
+const params = new URLSearchParams(window.location.search);
+const orderId = params.get("id");
+
+document.getElementById("order-id").textContent =
+  orderId ? "#" + orderId : "Will be generated after payment";
+
+/* -------------------------
+   Cart + Total
+-------------------------- */
+const cart = JSON.parse(localStorage.getItem("checkoutCart")) || [];
+const savedTotal = Number(localStorage.getItem("checkoutTotal")) || 0;
+
+const container = document.getElementById("order-items");
+const totalEl = document.getElementById("order-total");
+
+
+const itemsTotalEl = document.getElementById("items-total");
+const shippingEl = document.getElementById("shipping-price");
+let total = 0;
+
+const FREE_SHIPPING_AMOUNT = 120;
+const SHIPPING_FEE = 8;
+
+container.innerHTML = "";
+
+if (cart.length === 0) {
+  container.innerHTML = `
+    <p style="color:#999;">Your cart is empty.</p>
+  `;
+} else {
+  cart.forEach((item) => {
+    total += Number(item.price) * item.qty;
+
+    container.innerHTML += `
+      <div class="summary-item">
+        <img src="${item.image}" alt="${item.name}">
+
+        <div class="summary-info">
+          <p>${item.name}</p>
+          <small>${item.qty} × RM ${Number(item.price).toFixed(2)}</small>
+        </div>
+
+        <strong>RM ${(Number(item.price) * item.qty).toFixed(2)}</strong>
+      </div>
+    `;
+  });
+}
+
+// East Malaysia states
+const eastMalaysia = ["Sabah", "Sarawak", "Labuan"];
+
+// State dropdown
+const stateSelect = document.getElementById("state");
+
+// Calculate shipping
+function updateShipping() {
+
+    const state = stateSelect.value;
+
+    let shippingFee = 0;
+
+    if (eastMalaysia.includes(state)) {
+        shippingFee = total >= 120 ? 0 : 15;
+    } else {
+        shippingFee = total >= 120 ? 0 : 8;
+    }
+
+    const grandTotal = total + shippingFee;
+
+    itemsTotalEl.textContent = `RM ${total.toFixed(2)}`;
+    shippingEl.textContent =
+        shippingFee === 0 ? "FREE" : `RM ${shippingFee.toFixed(2)}`;
+    totalEl.textContent = `RM ${grandTotal.toFixed(2)}`;
+
+    return shippingFee;
+}
+
+// Update whenever customer changes state
+stateSelect.addEventListener("change", updateShipping);
+
+// Run once when page loads
+updateShipping();
+
+/* -------------------------
+   Place Order
+-------------------------- */
+const placeOrderBtn = document.querySelector(".place-order");
+placeOrderBtn.addEventListener("click", async () => {
+
+  const cart = JSON.parse(localStorage.getItem("checkoutCart")) || [];
+  const total = Number(localStorage.getItem("checkoutTotal")) || 0;
+
+   const shippingFee = updateShipping();
+const totalPrice = total + shippingFee;
+ const fullName = document.getElementById("fullName").value.trim();
+const email = document.getElementById("email").value.trim();
+const phone = document.getElementById("phone").value.trim();
+const notes = document.getElementById("orderNotes").value.trim();
+const address = document.querySelectorAll('input[type="text"]')[1].value.trim();
+const city = document.querySelectorAll('input[type="text"]')[2].value.trim();
+const postcode = document.querySelectorAll('input[type="text"]')[3].value.trim();
+
+
+const state = stateSelect.value;
+  if (!fullName || !phone || !address || !city || !postcode || !state) {
+    alert("Please fill in your shipping information.");
+    return;
+  }
+
+  placeOrderBtn.disabled = true;
+  placeOrderBtn.textContent = "Saving...";
+const publicId = generateOrderId();
+
+  const { data, error } = await supabase
+    .from("order")
+    .insert([
+      {
+        public_id:publicId,
+        name: fullName,
+        email: email,
+        phone: phone,
+        address: address,
+        city: city,
+        postcode: postcode,
+        state: state,
+        items: cart,
+        notes:notes,
+        total: total,
+        shipping_fee: shippingFee,
+        total_price : totalPrice,
+      }
+    ])
+    .select()
+    .single();
+
+  if (error) {
+    alert(error.message);
+    placeOrderBtn.disabled = false;
+    placeOrderBtn.textContent = "Place Order";
+    return;
+  }
+const orderEmail = {
+  name: fullName,
+  email: email,
+  phone: phone,
+  address: address,
+  orderNumber: publicId,
+  city: city,
+  postcode: postcode,
+  state: state,
+  items: cart,
+   notes:notes,
+  total: Number(total),
+  shipping_fee: Number(shippingFee),
+  total_price: Number(totalPrice)
+};
+
+const { data: emailData, error: emailError } =
+  await supabase.functions.invoke("send-order-email", {
+    body: orderEmail
+  });
+
+console.log("Email response:", emailData);
+console.log("Email error:", emailError);
+
+if (emailError) {
+  alert("Email failed: " + emailError.message);
+}
+
+
+
+  localStorage.removeItem("checkoutCart");
+  localStorage.removeItem("checkoutTotal");
+
+  alert("Order placed successfully!");
+
+window.location.href = `payment.html?id=${publicId}`;
+  
+});
+</script>
+</body>
+</html>

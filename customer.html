@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Track Your Order | PurelyHome</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Inter,sans-serif;
+  background:#FAF8F4;
+  color:#2f2f2f;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:60px 20px;
+}
+
+.hero{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.hero h1{
+  font-family:"Cormorant Garamond",serif;
+  font-size:52px;
+  color:#4a4032;
+}
+
+.hero p{
+  color:#8b8678;
+  margin-top:12px;
+}
+
+.search-box{
+  display:flex;
+  gap:12px;
+  background:#fff;
+  padding:12px;
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,.06);
+  margin-bottom:35px;
+}
+
+.search-box input{
+  flex:1;
+  border:none;
+  outline:none;
+  padding:14px;
+  font-size:15px;
+}
+
+.search-box button{
+  background:#CBB05D;
+  color:white;
+  border:none;
+  padding:14px 28px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.search-box button:hover{
+  background:#b89a42;
+}
+
+.loading,
+.empty{
+  text-align:center;
+  color:#888;
+  padding:30px;
+  display:none;
+}
+
+.order-card{
+  background:white;
+  border-radius:20px;
+  padding:22px;
+  margin-bottom:20px;
+  box-shadow:0 8px 20px rgba(0,0,0,.05);
+}
+
+.order-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.order-number{
+  font-size:22px;
+  font-weight:600;
+}
+
+.status{
+  padding:7px 16px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:600;
+}
+
+.pending{
+  background:#FFF4CF;
+  color:#9C7300;
+}
+
+.shipped{
+  background:#E6F7EA;
+  color:#247B3F;
+}
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  padding:12px 0;
+  border-bottom:1px solid #F3F1EC;
+}
+
+.row:last-child{
+  border:none;
+}
+
+.label{
+  color:#8C867A;
+}
+
+.total{
+  font-size:18px;
+  font-weight:700;
+}
+
+.details-btn{
+  display:inline-block;
+  margin-top:18px;
+  text-decoration:none;
+  background:#F1E7C9;
+  color:#6E6035;
+  padding:11px 18px;
+  border-radius:999px;
+  font-weight:600;
+}
+
+@media(max-width:700px){
+
+.hero h1{
+font-size:40px;
+}
+
+.search-box{
+flex-direction:column;
+}
+
+.search-box button{
+width:100%;
+}
+
+.order-top{
+flex-direction:column;
+align-items:flex-start;
+gap:10px;
+}
+
+.row{
+flex-direction:column;
+gap:5px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="hero">
+<h1>Track Your Order</h1>
+<p>Enter the email you used during checkout to view your orders.</p>
+</div>
+
+<div class="search-box">
+<input
+id="emailInput"
+type="email"
+placeholder="Enter your email address">
+
+<button id="searchBtn">
+Find Order
+</button>
+</div>
+
+<div id="loading" class="loading">
+Loading your orders...
+</div>
+
+<div id="emptyState" class="empty">
+No orders found with this email.
+</div>
+
+<div id="ordersList"></div>
+
+</div>
+
+<script>
+
+/* ========= SUPABASE ========= */
+
+const SUPABASE_URL = "https://rwlfjnygdhdbwcjlhprf.supabase.co";
+
+const SUPABASE_KEY = "sb_publishable_XjxwgUAH7t1udPhpxLqPcw_SFNxh9w0";
+
+const sb = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+
+/* ========= ELEMENTS ========= */
+
+const emailInput = document.getElementById("emailInput");
+const searchBtn = document.getElementById("searchBtn");
+const loading = document.getElementById("loading");
+const emptyState = document.getElementById("emptyState");
+const ordersList = document.getElementById("ordersList");
+
+/* ========= EVENTS ========= */
+
+searchBtn.addEventListener("click", loadCustomerOrders);
+
+emailInput.addEventListener("keypress",(e)=>{
+  if(e.key==="Enter"){
+    loadCustomerOrders();
+  }
+});
+
+/* ========= LOAD ORDERS ========= */
+
+async function loadCustomerOrders(){
+
+  const email=emailInput.value.trim().toLowerCase();
+
+  if(!email){
+    alert("Please enter your email.");
+    return;
+  }
+
+  ordersList.innerHTML="";
+  emptyState.style.display="none";
+  loading.style.display="block";
+
+  const {data,error}=await sb
+    .from("order")
+    .select("*")
+    .ilike("email",email)
+    .order("created_at",{ascending:false});
+
+  loading.style.display="none";
+
+  if(error){
+    console.error(error);
+    alert("Unable to load orders.");
+    return;
+  }
+
+  if(!data || data.length===0){
+    emptyState.style.display="block";
+    return;
+  }
+
+  renderOrders(data);
+
+}
+
+/* ========= RENDER ========= */
+
+function renderOrders(list){
+
+  ordersList.innerHTML="";
+
+  list.forEach(order=>{
+
+    const status=order.status || "Pending";
+
+    ordersList.innerHTML += `
+
+    <div class="order-card">
+
+      <div class="order-top">
+
+        <div class="order-number">
+          Order #${order.id}
+        </div>
+
+        <div class="status ${status==="Shipped"?"shipped":"pending"}">
+          ${status}
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="label">Order Date</div>
+        <div>${new Date(order.created_at).toLocaleDateString("en-MY")}</div>
+      </div>
+
+      <div class="row">
+        <div class="label">Phone Number</div>
+        <div>${order.phone || "-"}</div>
+      </div>
+
+      <div class="row">
+        <div class="label">Shipping Address</div>
+        <div>${order.address || "-"}</div>
+      </div>
+
+      <div class="row">
+        <div class="label total">Total</div>
+        <div class="total">RM ${Number(order.total_price || 0).toFixed(2)}</div>
+      </div>
+
+      <a class="details-btn" href="order.html?id=${order.id}">
+        View Order Details →
+      </a>
+
+    </div>
+
+    `;
+
+  });
+
+}
+
+</script>
+
+</body>
+</html>

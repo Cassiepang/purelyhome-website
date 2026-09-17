@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PurelyHome Admin | Products</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="products.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+  <!-- Sidebar -->
+
+  <aside class="sidebar">
+
+    <div class="brand">
+      <h2>PurelyHome</h2>
+      <p>Admin Dashboard</p>
+    </div>
+
+    <nav>
+
+      <a href="admin.html">Dashboard</a>
+
+      <a href="order.html">Orders</a>
+
+      <a href="customer.html">Customers</a>
+
+      <a href="products.html" class="active">Products</a>
+
+      <a href="#">Settings</a>
+
+    </nav>
+
+  </aside>
+
+  <!-- Main -->
+
+  <main class="content">
+
+    <!-- Header -->
+
+    <section class="header">
+
+      <div>
+        <h1>Products</h1>
+        <p>Manage products shown on your PurelyHome website.</p>
+      </div>
+
+      <button id="addProductBtn" class="primary-btn">
+        + Add Product
+      </button>
+
+    </section>
+
+    <!-- Stats -->
+
+    <section class="stats">
+
+      <div class="card">
+        <span>Total Products</span>
+        <h2 id="totalProducts">0</h2>
+      </div>
+
+      <div class="card">
+        <span>Active</span>
+        <h2 id="activeProducts">0</h2>
+      </div>
+
+      <div class="card">
+        <span>Hidden</span>
+        <h2 id="hiddenProducts">0</h2>
+      </div>
+
+      <div class="card">
+        <span>Low Stock</span>
+        <h2 id="lowStockProducts">0</h2>
+      </div>
+
+    </section>
+
+    <!-- Search -->
+
+    <section class="toolbar">
+
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Search product..."
+      >
+
+      <div class="filters">
+
+        <button class="filter active" data-filter="all">
+          All
+        </button>
+
+        <button class="filter" data-filter="active">
+          Active
+        </button>
+
+        <button class="filter" data-filter="hidden">
+          Hidden
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- Product List -->
+
+    <section id="productList" class="product-list">
+
+      <!-- JS Render Here -->
+
+    </section>
+
+  </main>
+
+</div>
+
+<!-- =========================
+      ADD / EDIT MODAL
+========================== -->
+
+<div id="productModal" class="modal hidden">
+
+  <div class="modal-content">
+
+    <div class="modal-top">
+
+      <h2 id="modalTitle">
+        Add Product
+      </h2>
+
+      <button id="closeModal">
+        ✕
+      </button>
+
+    </div>
+
+    <div class="modal-body">
+
+      <!-- Image -->
+
+      <div class="upload-image">
+
+        <img
+          id="previewImage"
+          src="images/wt.jpeg"
+          alt="Product Preview"
+        >
+
+        <input
+          id="productImage"
+          type="file"
+          accept="image/*"
+        >
+
+      </div>
+
+      <!-- Name -->
+
+      <div class="field">
+
+        <label>Product Name</label>
+
+        <input
+          id="productName"
+          type="text"
+          placeholder="White Tea Signature Laundry Sheets"
+        >
+
+      </div>
+
+      <!-- Price + Stock -->
+
+      <div class="row">
+
+        <div class="field">
+
+          <label>Price (RM)</label>
+
+          <input
+            id="productPrice"
+            type="number"
+          >
+
+        </div>
+
+        <div class="field">
+
+          <label>Stock</label>
+
+          <input
+            id="productStock"
+            type="number"
+          >
+
+        </div>
+
+      </div>
+
+      <!-- Scent + Status -->
+
+      <div class="row">
+
+        <div class="field">
+
+          <label>Scent</label>
+
+          <select id="productScent">
+
+            <option>White Tea</option>
+            <option>Freesia Bloom</option>
+            <option>Amber Neroli</option>
+
+          </select>
+
+        </div>
+
+        <div class="field">
+
+          <label>Status</label>
+
+          <select id="productStatus">
+
+            <option value="true">Active</option>
+
+            <option value="false">Hidden</option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+      <!-- Description -->
+
+      <div class="field">
+
+        <label>Description</label>
+
+        <textarea
+          id="productDescription"
+          rows="5"
+        ></textarea>
+
+      </div>
+
+    </div>
+
+    <div class="modal-footer">
+
+      <button id="cancelModal" class="secondary-btn">
+        Cancel
+      </button>
+
+      <button id="saveProduct" class="primary-btn">
+        Save Product
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =========================
+        DELETE MODAL
+========================== -->
+
+<div id="deleteModal" class="modal hidden">
+
+  <div class="delete-box">
+
+    <h3>Delete Product?</h3>
+
+    <p>
+      This action cannot be undone.
+    </p>
+
+    <div class="delete-buttons">
+
+      <button id="cancelDelete" class="secondary-btn">
+        Cancel
+      </button>
+
+      <button id="confirmDelete" class="danger-btn">
+        Delete
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script type="module" src="products.js"></script>
+
+</body>
+</html>

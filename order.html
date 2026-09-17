@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Order Details | PurelyHome</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  background:#FAF8F5;
+  font-family:Inter,sans-serif;
+  color:#40362D;
+}
+
+.container{
+  max-width:900px;
+  margin:50px auto;
+  padding:20px;
+}
+
+.back{
+  color:#8A7E73;
+  text-decoration:none;
+  font-size:14px;
+}
+
+h1{
+  font-family:"Cormorant Garamond",serif;
+  font-size:42px;
+  margin:20px 0 35px;
+}
+
+.card{
+  background:#fff;
+  border-radius:24px;
+  padding:28px;
+  margin-bottom:20px;
+  box-shadow:0 8px 24px rgba(0,0,0,.05);
+}
+
+.section-title{
+  font-size:13px;
+  color:#998F85;
+  margin-bottom:15px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  margin:14px 0;
+  gap:20px;
+}
+
+.label{
+  color:#8B8178;
+}
+
+.value{
+  font-weight:500;
+  text-align:right;
+}
+
+.product{
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+
+.product img{
+  width:90px;
+  border-radius:18px;
+}
+
+.total{
+  border-top:1px solid #ECE7DF;
+  padding-top:18px;
+  margin-top:18px;
+  font-size:20px;
+  font-weight:700;
+}
+
+.ship-btn{
+  width:100%;
+  padding:16px;
+  border:none;
+  border-radius:999px;
+  background:#D8C36E;
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+  font-size:15px;
+}
+
+.ship-btn:hover{
+  background:#C6B45E;
+}
+
+.status{
+  display:inline-block;
+  padding:8px 16px;
+  border-radius:999px;
+  background:#FFF4D7;
+  color:#A37B00;
+  font-weight:600;
+  font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="admin.html" class="back">← Back to Orders</a>
+
+<h1>Order <span id="orderNumber"></span></h1>
+
+<div class="card">
+
+<div class="section-title">Customer</div>
+
+<div class="row">
+  <span class="label">Name</span>
+  <span class="value" id="customerName"></span>
+</div>
+
+<div class="row">
+  <span class="label">Email</span>
+  <span class="value" id="customerEmail"></span>
+</div>
+
+<div class="row">
+  <span class="label">Phone</span>
+  <span class="value" id="customerPhone"></span>
+</div>
+
+<div class="row">
+  <span class="label">Status</span>
+  <span class="status" id="orderStatus">Pending</span>
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="section-title">Shipping Address</div>
+
+<div id="customerAddress" style="line-height:1.8"></div>
+
+</div>
+<div class="card">
+
+  <div class="section-title">Items Ordered</div>
+
+  <div id="itemsContainer"></div>
+
+  <div class="total-row">
+    <span>Total</span>
+    <strong id="orderTotal">RM 0.00</strong>
+  </div>
+
+</div>
+
+<button id="shipBtn" class="ship-btn">
+  Mark as Shipped
+</button>
+
+
+</div>
+
+<script type="module" src="order.js"></script>
+
+</body>
+</html>

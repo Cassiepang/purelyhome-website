@@ -1,0 +1,345 @@
+/* ======================================
+   PURELYHOME ADMIN DASHBOARD V2
+====================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+body{
+    background:#FAF8F5;
+    color:#5B4636;
+}
+
+/* ===== Layout ===== */
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+/* ===== Sidebar ===== */
+
+.sidebar{
+    width:220px;
+    background:#FFFFFF;
+    border-right:1px solid #F0E8DD;
+    padding:30px 22px;
+}
+
+.logo{
+    font-family:"Cormorant Garamond",serif;
+    font-size:34px;
+    color:#8C6239;
+    margin-bottom:6px;
+}
+
+.logo small{
+    display:block;
+    font-size:11px;
+    letter-spacing:3px;
+    color:#B99870;
+    margin-top:2px;
+}
+
+.menu{
+    margin-top:40px;
+}
+
+.menu a{
+    display:block;
+    padding:12px 14px;
+    border-radius:12px;
+    margin-bottom:10px;
+    color:#86624B;
+    text-decoration:none;
+    font-weight:500;
+    transition:.2s;
+}
+
+.menu a:hover,
+.menu a.active{
+    background:#FFF5E8;
+    color:#C28B36;
+}
+
+/* ===== Main ===== */
+
+.main{
+    flex:1;
+    padding:35px;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:28px;
+}
+
+.header h1{
+    font-family:"Cormorant Garamond",serif;
+    font-size:42px;
+    color:#6A4730;
+}
+
+/* ===== Summary ===== */
+
+.summary-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-bottom:30px;
+}
+
+.summary-card{
+    background:white;
+    border-radius:22px;
+    padding:24px;
+    box-shadow:0 8px 30px rgba(70,45,15,.05);
+}
+
+.summary-card p{
+    font-size:12px;
+    color:#A18B74;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:8px;
+}
+
+.summary-card h2{
+    font-size:28px;
+    color:#7B5636;
+}
+
+/* ===== Table Card ===== */
+
+.table-card{
+    background:white;
+    border-radius:24px;
+    padding:25px;
+    box-shadow:0 8px 30px rgba(70,45,15,.05);
+    overflow-x:auto;
+}
+
+.table-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+    gap:15px;
+}
+
+.table-header h3{
+    font-size:24px;
+    font-family:"Cormorant Garamond",serif;
+    color:#755239;
+}
+
+/* ===== Search ===== */
+
+.search-box input{
+    width:240px;
+    height:42px;
+    border-radius:999px;
+    border:1px solid #EADFCF;
+    padding:0 18px;
+    background:#FFFDFB;
+    outline:none;
+}
+
+.search-box input:focus{
+    border-color:#D8A24C;
+}
+
+/* ===== Table ===== */
+
+table{
+    width:100%;
+    min-width:1200px;
+    border-collapse:collapse;
+}
+
+thead th{
+    text-align:left;
+    padding:14px;
+    font-size:12px;
+    color:#A38D75;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+tbody td{
+    padding:20px 14px;
+    border-top:1px solid #F5EFE7;
+    vertical-align:top;
+    font-size:14px;
+}
+
+tbody tr:hover{
+    background:#FFFCF8;
+}
+
+.customer-name{
+    font-weight:600;
+    color:#6E5037;
+}
+
+.customer-email{
+    font-size:12px;
+    color:#A28E79;
+    margin-top:4px;
+}
+
+/* ===== Status ===== */
+
+.status-badge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:7px 14px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.status-badge.pending{
+    background:#FFF3DF;
+    color:#C68B1E;
+}
+
+.status-badge.shipped{
+    background:#E9F8EE;
+    color:#239D61;
+}
+
+.status-badge.paid{
+    background:#EEF4FF;
+    color:#3F6FD8;
+}
+
+/* ===== Action ===== */
+
+.action-box{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    width:190px;
+}
+
+.courier-select,
+.tracking-input{
+    width:100%;
+    height:40px;
+    padding:0 12px;
+    border:1px solid #E8DCCB;
+    border-radius:12px;
+    background:white;
+    color:#73553A;
+    font-size:13px;
+    outline:none;
+}
+
+.courier-select:focus,
+.tracking-input:focus{
+    border-color:#D7A44A;
+}
+
+.action-buttons{
+    display:flex;
+    gap:8px;
+}
+
+.save-btn,
+.view-btn{
+    flex:1;
+    height:36px;
+    border-radius:12px;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.save-btn{
+    background:#D8A24C;
+    border:none;
+    color:white;
+}
+
+.save-btn:hover{
+    background:#C58A31;
+}
+
+.view-btn{
+    background:white;
+    border:1px solid #D8A24C;
+    color:#8C6239;
+}
+
+.view-btn:hover{
+    background:#FFF6EA;
+}
+
+/* ===== Receipt Preview ===== */
+
+.receipt-img{
+    width:65px;
+    height:65px;
+    object-fit:cover;
+    border-radius:12px;
+    border:1px solid #EEE3D2;
+    cursor:pointer;
+}
+
+.no-receipt{
+    font-size:12px;
+    color:#B8A48F;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width:1000px){
+
+    .summary-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:12px;
+    }
+
+    .search-box input{
+        width:100%;
+    }
+
+}
+
+@media (max-width:700px){
+
+    .sidebar{
+        display:none;
+    }
+
+    .main{
+        padding:20px;
+    }
+
+    .summary-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+.order-notes {
+  max-width: 180px;
+  white-space: normal;
+  word-break: break-word;
+  color: #6B4F3A;
+  font-size: 13px;
+}

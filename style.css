@@ -1,0 +1,2298 @@
+/* ---------- RESET ---------- */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#F8F5F1;
+    color:#2D2926;
+    font-family:'Inter',sans-serif;
+    line-height:1.7;
+}
+
+/* ---------- CONTAINER ---------- */
+
+section{
+    padding:110px 8%;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+/* Free Shipping Bar */
+.shipping-bar{
+    background:#6F7752;
+    color:#fff;
+    text-align:center;
+    padding:10px 20px;
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:.05em;
+}
+
+/* Navbar Icons */
+.nav-icons{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.nav-icon{
+    width:20px;
+    height:20px;
+    color:#5F5A54;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.nav-icon:hover{
+    color:#7C845A;
+}
+
+/* ---------- NAVBAR ---------- */
+
+.navbar{
+    position:sticky;
+    top:0;
+    background:rgba(248,245,241,.92);
+    backdrop-filter:blur(18px);
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:999;
+    border-bottom:1px solid rgba(0,0,0,.05);
+}
+/* PURELYHOME Logo */
+.logo{
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    line-height: 1;
+}
+
+.logo a{
+    color: #4B3F35;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.logo a:visited,
+.logo a:hover,
+.logo a:active{
+    color: #4B3F35;
+    text-decoration: none;
+}
+
+nav{
+    display:flex;
+    gap:42px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#555;
+    font-size:13px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#2D2926;
+}
+
+.shop-btn{
+    background:#707B55;
+    color:white;
+    border:none;
+    border-radius:999px;
+    padding:14px 34px;
+    font-size:12px;
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:.35s;
+}
+
+.shop-btn:hover{
+    background:#59633F;
+}
+
+.nav-icons{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.nav-icon{
+    width:20px;
+    height:20px;
+    color:#5F5A54;
+    cursor:pointer;
+    transition:.25s ease;
+}
+
+.nav-icon:hover{
+    color:#7C845A;
+}
+/* ---------- HERO ---------- */
+
+.hero{
+    position:relative;
+    width:100%;
+    height:90vh;
+    overflow:hidden;
+}
+
+.hero-bg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* ===== HERO LEFT ===== */
+
+.hero-overlay{
+    position:absolute;
+    left:90px;
+    top:50%;
+    transform:translateY(-50%);
+    max-width:470px;
+    z-index:2;
+}
+
+.hero-tag{
+    display:block;
+    margin-bottom:24px;
+
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    font-weight:500;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:#7A7467;
+}
+
+.hero-title{
+    margin:0 0 28px;
+
+    font-family:'Cormorant Garamond',serif;
+    font-size:67px;
+    font-weight:400;
+    line-height:0.90;
+    letter-spacing:0.5px;
+    color:#403833;
+    max-width: 600px;
+  
+
+}
+
+.hero-text{
+    margin-bottom:38px;
+
+    font-family:'Inter',sans-serif;
+    font-size:17px;
+    line-height:1.85;
+    color:#69645D;
+}
+
+.hero-btn{
+    display:inline-block;
+    padding:15px 34px;
+
+    background:#7C845A;
+    color:white;
+    border-radius:999px;
+
+    text-decoration:none;
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+
+    transition:0.3s ease;
+}
+
+.hero-btn:hover{
+    background:#66704A;
+}
+/* ---------- BENEFITS ---------- */
+
+.benefits{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:40px;
+    border-top:1px solid rgba(0,0,0,.08);
+    border-bottom:1px solid rgba(0,0,0,.08);
+    padding-top:70px;
+    padding-bottom:70px;
+}
+
+.benefit{
+    text-align:center;
+}
+
+.benefit span{
+    font-size:28px;
+    color:#707B55;
+}
+
+.benefit h3{
+    margin:20px 0 12px;
+    font-size:13px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-weight:500;
+}
+
+.benefit p{
+    font-size:14px;
+    color:#666;
+}
+
+.feature{
+  padding: 28px 8% 24px;
+  margin-top: -20px;
+
+
+}
+.feature-card svg{
+  width:25px;
+  height:25px;
+  margin-bottom:12px;
+  stroke: #8a8b66;
+  stroke-width: 1.5;
+}
+
+/* ---------- STORY ---------- */
+
+.story{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:90px;
+}
+
+.story-image img{
+    width: 100%;
+    height:640px;
+    object-fit:cover;
+    border-radius: 28px;
+}
+
+.story h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:60px;
+    line-height:0.95;
+    margin-bottom:28px;
+    font-weight:400;
+}
+
+.story p{
+    color:#666;
+    max-width:420px;
+    margin-bottom:20px;
+}
+
+/* ---------- HOW TO USE ---------- */
+
+/* =========================
+   HOW TO USE
+   PURELYHOME
+========================= */
+
+.how-to-use{
+    background:#F8F6F2;
+    padding:140px 0;
+}
+
+.how-container{
+    width:90%;
+    max-width:1400px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:340px 1fr;
+    gap:70px;
+    align-items:start;
+}
+
+/* LEFT CONTENT */
+
+.eyebrow{
+    display:block;
+    font-size:12px;
+    letter-spacing:3px;
+    color:#8E8772;
+    margin-bottom:22px;
+}
+
+.how-heading h2{
+    font-family:'Cormorant Garamond', serif;
+    font-size:72px;
+    font-weight:300;
+    line-height:0.92;
+    color:#2B2927;
+    margin-bottom:28px;
+}
+
+.how-heading p{
+    font-size:17px;
+    line-height:1.8;
+    color:#66625C;
+    max-width:260px;
+    margin-bottom:40px;
+}
+
+.guide-link{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    font-size:13px;
+    letter-spacing:2px;
+    text-decoration:none;
+    color:#7C8260;
+    border-bottom:1px solid #7C8260;
+    padding-bottom:5px;
+    transition:.3s;
+}
+
+.guide-link:hover{
+    gap:16px;
+}
+
+/* RIGHT GRID */
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:26px;
+}
+
+.step-card{
+    display:flex;
+    flex-direction:column;
+}
+
+.step-card img{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    border-radius:24px;
+    display:block;
+
+    transition:.35s ease;
+}
+
+.step-card:hover img{
+    transform:translateY(-5px);
+}
+
+/* STEP TEXT */
+
+.step-content{
+    padding-top:24px;
+}
+
+.step-number{
+    font-family:'Cormorant Garamond', serif;
+    font-size:34px;
+    color:#A29A82;
+    display:block;
+    margin-bottom:10px;
+}
+
+.step-content h3{
+    font-family:'Cormorant Garamond', serif;
+    font-size:28px;
+    font-weight:400;
+    color:#2E2C2A;
+    margin-bottom:14px;
+    line-height:1.1;
+}
+
+.step-content p{
+    font-size:15px;
+    line-height:1.8;
+    color:#6A665F;
+}
+
+/* RESPONSIVE */
+
+@media (max-width:1024px){
+
+    .how-container{
+        grid-template-columns:1fr;
+        gap:60px;
+    }
+
+    .how-heading h2{
+        font-size:60px;
+    }
+
+    .steps{
+        grid-template-columns:repeat(3,1fr);
+        gap:18px;
+    }
+
+}
+
+@media (max-width:900px){
+
+    .how-to-use{
+        padding:90px 0;
+    }
+
+    .how-heading h2{
+        font-size:48px;
+    }
+
+    .steps{
+        grid-template-columns:1fr;
+        gap:42px;
+    }
+
+    .step-card img{
+        aspect-ratio:16/12;
+    }
+
+    .step-content{
+        padding-top:18px;
+    }
+
+}
+/* ---------- SCENT ---------- */
+
+.scent-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.scent-title h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:56px;
+    font-weight:400;
+}
+
+.notes{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:26px;
+}
+
+.note img{
+    border-radius:22px;
+    margin-bottom:18px;
+}
+
+.note span{
+    display:block;
+    font-size:12px;
+    letter-spacing:2px;
+    color:#888;
+    margin-bottom:8px;
+}
+
+.note h4{
+    font-family:'Cormorant Garamond',serif;
+    font-size:28px;
+    font-weight:400;
+    margin-bottom:6px;
+}
+
+.note p{
+    color:#666;
+    font-size:14px;
+}
+
+.scent-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(0,0,0,.08);
+}
+
+/* ===== REVIEW SECTION ===== */
+
+/* ===========================
+   REVIEWS SECTION
+=========================== */
+
+.reviews{
+    padding:140px 7%;
+    background:#F7F3EE;
+}
+
+/* ---------- Header ---------- */
+
+.review-header{
+    text-align:center;
+    max-width:650px;
+    margin:0 auto 80px;
+}
+
+.review-header span{
+    display:block;
+    font-size:12px;
+    letter-spacing:.28em;
+    color:#8E867C;
+    margin-bottom:20px;
+}
+
+.review-header h2{
+    font-family:'Cormorant Garamond', serif;
+    font-size: clamp(42px, 5vw, 56px);
+    line-height:.92;
+    font-weight:400;
+    color:#2E2B28;
+    margin-bottom:22px;
+}
+
+.review-header p{
+    font-size:17px;
+    color:#6E6A63;
+    line-height:1.7;
+    margin-bottom:26px;
+}
+
+/* Rating */
+
+.rating-summary{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:#FCFAF8;
+    border:1px solid #E8E2DA;
+    padding:10px 18px;
+    border-radius:999px;
+    font-size:14px;
+    color:#736C63;
+}
+
+.rating-summary strong{
+    color:#2E2B28;
+    font-weight:600;
+}
+
+.rating-summary small{
+    color:#8B857C;
+}
+
+/* ---------- Cards ---------- */
+
+/* Review section width */
+.reviews{
+    background:#F7F3EE;
+    padding:50px 0;
+}
+
+.review-container{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 48px;
+}
+
+.review-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:26px;
+}
+
+.review-card{
+    background:#FCFAF8;
+    border:1px solid #E8E2DA;
+    border-radius:26px;
+    padding:28px;
+    transition:.35s ease;
+}
+
+.review-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 16px 35px rgba(60,50,35,.08);
+}
+
+.stars{
+    color:#B89963;
+    letter-spacing:4px;
+    font-size:13px;
+    margin-bottom:18px;
+}
+
+.review-text{
+    color:#4B4742;
+    font-size:15px;
+    line-height:1.9;
+    margin-bottom:22px;
+    min-height:165px;
+}
+
+/* Customer Photo */
+
+.review-photo{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    border-radius:18px;
+    margin-bottom:22px;
+}
+
+/* ---------- User ---------- */
+
+.review-user{
+    border-top:1px solid #ECE5DD;
+    padding-top:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+}
+
+.review-user h4{
+    font-size:15px;
+    color:#2F2C28;
+    font-weight:500;
+    margin-bottom:6px;
+}
+
+.review-user span{
+    font-size:12px;
+    color:#7C766E;
+    letter-spacing:.04em;
+}
+
+.review-user small{
+    font-size:12px;
+    color:#9B948A;
+    margin-top:2px;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width:767px){
+
+    .reviews{
+        padding:90px 24px;
+    }
+
+    .review-header{
+        margin-bottom:50px;
+    }
+
+    .review-header h2{
+        font-size:48px;
+    }
+
+    .review-grid{
+        grid-template-columns:1fr;
+        gap:22px;
+    }
+
+    .review-text{
+        min-height:auto;
+    }
+
+}
+/* ================= FOOTER V3 ================= */
+
+.footer{
+  background:#EAEEDB;
+  padding:90px 24px 45px;
+  margin-top:120px;
+}
+
+.footer-container{
+  max-width:760px;
+  margin:auto;
+  text-align:center;
+}
+
+.footer-brand{
+  font-size:12px;
+  letter-spacing:4px;
+  color:#3a3c31;
+  margin-bottom:18px;
+  text-transform:uppercase;
+}
+
+.footer h2{
+  font-family:"Cormorant Garamond", serif;
+  font-size:58px;
+  font-weight:500;
+  color:#564D42;
+  margin-bottom:18px;
+  line-height:1.1;
+}
+
+.footer-text{
+  color:#736A5F;
+  font-size:16px;
+  margin-bottom:42px;
+}
+
+.footer-social,
+.footer-links{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:18px;
+  margin-bottom:28px;
+}
+
+.footer-social span{
+  color:#3e3c33;
+}
+
+.footer a{
+  color:#5B5247;
+  text-decoration:none;
+  transition:0.25s;
+}
+
+.footer a:hover{
+  color:#98A164;
+}
+
+.footer-contact{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:white;
+  color:#5B5247;
+  padding:14px 24px;
+  border-radius:999px;
+  font-weight:600;
+  border:1px solid #D9D8C9;
+  margin:24px 0 48px;
+}
+
+.footer-contact:hover{
+  background:#98A164;
+  color:white;
+}
+
+.footer-divider{
+  width:120px;
+  height:1px;
+  background:#CFC9B8;
+  margin:0 auto 20px;
+}
+
+.copyright{
+  color:#44413a;
+  font-size:13px;
+}
+
+/* Mobile */
+
+@media (max-width:768px){
+
+  .footer{
+    padding:70px 20px 40px;
+  }
+
+  .footer h2{
+    font-size:42px;
+  }
+
+  .footer-social,
+  .footer-links{
+    gap:14px;
+  }
+
+  .footer-contact{
+    width:100%;
+    justify-content:center;
+  }
+
+}
+/* ---------- MOBILE ---------- */
+
+@media(max-width:767px){
+/* =====================================
+   MOBILE NAVBAR ONLY (REPLACE THIS BLOCK)
+   Desktop 不会受影响
+===================================== */
+
+/* Mobile Track Order Button */
+.mobile-track-btn{
+  display:block;
+  width:100%;
+  text-align:center;
+  padding:12px;
+  background:#A8A26A;
+  color:#fff !important;
+  border-radius:999px;
+  font-size:12px;
+  letter-spacing:2px;
+  text-decoration:none;
+  margin-top:6px;
+}
+
+/* Mobile Cart */
+.mobile-cart-btn{
+  display:block;
+  width:100%;
+  text-align:center;
+  padding:12px;
+  border:1px solid #D9D3C4;
+  border-radius:999px;
+  color:#4b3f35 !important;
+  text-decoration:none;
+  font-size:12px;
+  letter-spacing:2px;
+}
+
+ .navbar{
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px 18px;
+
+    background: #fff;
+}
+.menu-btn{
+    display:block;
+    background:none;
+    border:none;
+
+    width:40px;
+    height:40px;
+    margin-left:auto;
+    flex-shrink:0;
+
+    font-size:30px;
+    color:#4b3f35;
+    cursor:pointer;
+}
+
+  /* 默认隐藏菜单 */
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:70px;
+    left:16px;
+    right:16px;
+    background:#fff;
+    border-radius:20px;
+    padding:22px;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    z-index:99999;      /* 改这里 */
+}
+
+.mobile-track-btn,
+.mobile-cart-btn{
+    display:block !important;
+    width:100%;
+    text-align:center;
+    padding:12px;
+    border-radius:30px;
+    text-decoration:none;
+    font-size:13px;
+    letter-spacing:1px;
+}
+
+.mobile-track-btn{
+    background:#7D8656;
+    color:#fff !important;
+}
+
+.mobile-cart-btn{
+    border:1px solid #7D8656;
+    color:#7D8656 !important;
+}
+
+.nav-links.show{
+    display:flex !important;
+}
+
+  .nav-links a{
+    font-size:13px;
+    letter-spacing:2px;
+    text-decoration:none;
+    color:#6A5747;
+  }
+
+  /* Mobile 不显示右边 Track Order */
+  .nav-icons{
+    display:none;
+  }
+
+
+  /* Perfume / 1 Sheet 上一段 */
+.features{
+    padding-bottom:0 !important;
+    margin-bottom:0 !important;
+}
+
+.features-grid{
+    margin-bottom:0 !important;
+}
+
+/* Our Story 紧贴上面 */
+.story{
+    margin-top:0 !important;
+    padding-top:0 !important;
+}
+
+
+/* Mobile - Our Story */
+/* ===== MOBILE OUR STORY ===== */
+.story{
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+    padding:48px 0; /* Section 上下留白，左右 0 */
+}
+
+/* 图片铺满整个手机宽度 */
+.story-image{
+    width:100%;
+    margin:0;
+    padding:0;
+}
+
+.story-image img{
+    display:block;
+    width:100vw;                     /* 满屏宽 */
+    max-width:none;
+    height:260px;
+    object-fit:cover;
+    object-position:center;
+
+    border-radius:0;                 /* 不要圆角 */
+    margin-left:calc(50% - 50vw);    /* 去掉 container 左右留白 */
+}
+
+/* 文字保留左右留白 */
+.story-text{
+    width:100%;
+    padding:0 24px;
+}
+
+.story-text h2{
+    margin:12px 0 20px;
+}
+
+.story-text p{
+    margin-bottom:18px;
+    max-width:350px;
+    line-height:1.8;
+}
+.how{
+    grid-template-columns:1fr;
+}
+
+
+.how-left h2,
+.scent-title h2,
+.review-title h2{
+    font-size:42px;
+}
+
+.benefits{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.steps,
+.notes,
+.reviews{
+    grid-template-columns:1fr;
+}
+
+.footer-grid{
+    grid-template-columns:1fr 1fr;
+}
+
+
+/* ========= MOBILE HERO - PURELYHOME ========= */
+/* ===== MOBILE HERO - Text Left, Girl Right ===== */
+
+
+  .hero{
+    position: relative;
+    width: 100%;
+    height: 640px;
+    overflow: hidden;
+    border-radius: 0;
+    background: #fff;
+  }
+
+  /* Hero Image - Full Screen, Girl on Right */
+  .hero-bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: 65% center;
+
+    z-index: 1;
+  }
+
+  /* Text Overlay */
+  .hero-overlay{
+    position: absolute;
+    left: 20px;          /* 靠左 */
+    top: 120px;          /* 往下 */
+    transform: none;     /* 取消垂直置中 */
+
+    width: 100%;
+    max-width: 220px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 20px 16px 40px;
+
+    background: linear-gradient(
+      90deg,
+      rgba(255,255,255,0.95) 0%,
+      rgba(255,255,255,0.85) 55%,
+      rgba(255,255,255,0.35) 75%,
+      rgba(255,255,255,0) 100%
+    );
+
+    z-index: 2;
+  }
+
+  /* WHITE TEA SIGNATURE */
+  .hero-tag{
+    font-size: 10px;
+    letter-spacing: .28em;
+    color: #7b6c60;
+    margin-bottom: 12px;
+  }
+
+  /* Naturally clean */
+  .hero-title{
+    font-size: 34px;
+    line-height: .95;
+    color: #3f3530;
+    margin: 0 0 18px;
+    text-align: left;
+  }
+
+  /* Description */
+  .hero-text{
+    font-size: 12px;
+    line-height: 1.7;
+    color: #5d534c;
+    margin-bottom: 22px;
+    max-width: 150px;
+    text-align: left;
+  }
+
+  /* Button */
+  .hero-btn{
+    padding: 12px 22px;
+    border-radius: 999px;
+    background: #9E9A4D;
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+/* =========================================
+   PURELYHOME FAQ - MOBILE
+========================================= */
+
+.faq{
+    padding:72px 24px 56px;   /* 上、左右、下留白 */
+    background:#fff;
+}
+
+.faq-header{
+    text-align:center;
+    margin-bottom:48px;
+}
+
+.faq-header h2{
+    font-size:46px;
+    line-height:1.1;
+    font-weight:400;
+    margin-bottom:18px;
+    color:#4A4138;
+}
+
+.faq-header p{
+    font-size:15px;
+    line-height:1.8;
+    color:#6B6258;
+    max-width:280px;
+    margin:0 auto;
+}
+
+/* 每一题 */
+.faq-item{
+    padding:22px 0;
+    border-bottom:1px solid #ECE8E2;
+}
+
+.faq-question{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    font-size:18px;
+    line-height:1.5;
+    color:#4A4138;
+    cursor:pointer;
+}
+
+/* + / - */
+.faq-question span{
+    font-size:20px;
+    color:#51513c;
+    margin-left:20px;
+}
+
+/* 答案 */
+.faq-answer{
+    margin-top:18px;
+    padding-right:15px;
+    padding-left: 20px;
+
+    font-size:15px;
+    line-height:1.8;
+    color:#6B6258;
+}
+
+}
+/* Reveal Animation */
+
+.hidden{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s ease;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+
+
+/* Smooth Images */
+
+.story-image img,
+.step img,
+.note img,
+.hero-image img{
+    transition:1.2s ease;
+}
+
+
+
+/* HERO */
+.hero{
+    background-color:#FBF8F4;   /* Cream White */
+}
+
+/* HOW TO USE */
+.how-to-use{
+    background-color:#F3EBDD;   /* Warm Linen */
+}
+
+
+/* LAUNDRY CARE (3张图片) */
+.laundry-section{
+    background-color:#dad5d5;   /* Soft Almond */
+}
+
+/* WHITE TEA SIGNATURE PRODUCT */
+.story{
+    background-color:#FCFAF7;   /* Ivory White */
+}
+
+/* SIGNATURE SCENTS */
+.signature-scents{
+    background-color:#774f0a;   /* Soft Ivory */
+}
+
+/* REVIEWS */
+.reviews{
+    background-color:#F1E7D9;   /* Warm Oat */
+}
+
+/* FAQ */
+.faq{
+    background-color:#FBF8F4;   /* 回到奶白 */
+}
+
+/* FOOTER */
+.footer{
+    background-color:#aeb49e;   /* Olive Sage */
+}
+
+/* 每个 Section 留白统一 */
+.hero,
+.how-to-use,
+.story,
+.reviews,
+.faq{
+    padding:80px 0;
+}
+
+/* ---------------- SIGNATURE SCENTS ---------------- */
+
+.signature-scents{
+    background:#F8F5F1;
+    padding:50px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-title span{
+    letter-spacing:3px;
+    font-size:12px;
+    color:#8D867D;
+}
+
+.section-title h2{
+    font-family:"Cormorant Garamond", serif;
+    font-size:58px;
+    font-weight:400;
+    color:#2F2A26;
+    margin:18px 0;
+}
+
+.section-title p{
+    color:#7B756E;
+    font-size:16px;
+    max-width:560px;
+    margin:auto;
+    line-height:1.8;
+}
+
+/* Cards */
+
+.scent-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+}
+
+.scent-card{
+    background:white;
+    border-radius:26px;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    transition:.35s ease;
+}
+
+.scent-card img{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    display:block;
+    transition:.35s ease;
+}
+
+.scent-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 45px rgba(0,0,0,.08);
+}
+
+.scent-card:hover img{
+    transform:scale(1.03);
+}
+
+.card-info{
+    padding:24px;
+}
+
+.card-info small{
+    letter-spacing:2px;
+    color:#9B958B;
+    font-size:11px;
+}
+
+.title-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:14px 0 10px;
+}
+
+.title-row h3{
+    font-family:"Cormorant Garamond", serif;
+    font-size:34px;
+    font-weight:400;
+    color:#2F2A26;
+    margin:0;
+}
+
+.title-row span{
+    color:#6F675F;
+    font-size:15px;
+}
+
+.card-info p{
+    color:#80786E;
+    font-size:15px;
+    margin-bottom:24px;
+}
+
+.card-link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #707B55;      /* White Tea Olive Green */
+    color: #FFFDF8;
+
+    padding: 18px 24px;
+    margin-top: 22px;
+
+    border-radius: 999px;     /* 圆角胶囊 */
+    border: none;
+
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    transition: all .3s ease;
+}
+
+.card-link:hover{
+    background: #909B58;
+    color: #FFFDF8;
+}
+/* Mobile */
+
+@media (max-width:900px){
+
+.scent-grid{
+grid-template-columns:1fr;
+}
+
+.section-title h2{
+font-size:42px;
+}
+
+}
+/* ================= FAQ ================= */
+
+.faq{
+    background:#FBF8F4;
+    padding:70px 0;
+}
+
+.faq-container{
+    max-width:760px;
+    margin:auto;
+}
+
+.faq-heading{
+    text-align:center;
+    margin-bottom:36px;
+}
+
+
+.faq-heading h2{
+    font-size:46px;
+    font-weight:300;
+    color:#564B43;
+    margin:12px 0;
+}
+
+.faq-heading p{
+    color:#8C847B;
+    font-size:15px;
+}
+
+.faq-item{
+    border-bottom:1px solid #E8E2D9;
+    padding:18px 0;
+}
+
+.faq-question{
+    width:100%;
+    background:none;
+    border:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    cursor:pointer;
+    padding:0;
+    font-size:17px;
+    color:#564B43;
+    font-family:inherit;
+}
+
+.faq-icon{
+    font-size:22px;
+    color:#97A76C;
+}
+
+.faq-answer{
+    display:none;
+    padding-top:12px;
+    color:#7E756D;
+    font-size:15px;
+    line-height:1.7;
+    max-width:90%;
+}
+
+.faq-item.active .faq-answer{
+    display:block;
+}
+
+/* ==========================================
+   PURELYHOME - WHITE TEA SIGNATURE SECTION
+========================================== */
+
+.laundry-section{
+    background: #fcfaf7;;
+    padding:110px 0;
+    padding-bottom: 0;
+}
+
+.laundry-container{
+    max-width:1280px;
+    margin:0 auto;
+    padding:0 48px;
+
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    align-items:center;
+    gap:64px;
+}
+
+/* ---------- LEFT IMAGE ---------- */
+
+.laundry-image{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.laundry-image img{
+    width:100%;
+    max-width:660px;      /* 原本560/610 → 改660 */
+    display:block;
+    margin-left:-18px;    /* 往左一点，更有官网感 */
+    border-radius:28px;
+}
+
+.laundry-image img:hover{
+    transform:scale(1.02);
+}
+
+/* ---------- RIGHT CONTENT ---------- */
+
+.laundry-content{
+    max-width:460px;
+}
+
+.laundry-tag{
+    display:block;
+    margin-bottom:16px;
+
+    font-size:12px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#9B917E;
+}
+
+/* ---------- TITLE ---------- */
+
+.laundry-content h2{
+    font-family:"Cormorant Garamond", serif;
+    font-size:50px;
+    font-weight:300;
+    line-height:1.05;
+    color:#2F2823;
+    margin:0 0 12px;
+    white-space:nowrap;      /* White Tea Signature 一排 */
+}
+
+/* ---------- DESCRIPTION ---------- */
+
+.laundry-desc{
+    font-size:17px;
+    line-height:1.8;
+    color:#5F584F;
+    margin-bottom:24px;
+}
+
+/* ---------- PRICE ---------- */
+
+.laundry-price{
+    font-family:"Cormorant Garamond", serif;
+    font-size:45px;
+    font-weight:400;
+    color:#2F2823;
+    letter-spacing:-1px;
+    margin-bottom:8px;
+}
+
+.laundry-sub{
+    font-size:15px;
+    color:#8A8378;
+    margin-bottom:32px;
+}
+
+/* ---------- BENEFITS ---------- */
+
+.laundry-benefits{
+    list-style:none;
+    padding:0;
+    margin:0 0 36px;
+}
+
+.laundry-benefits li{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:16px;
+
+    color:#4F4942;
+    font-size:16px;
+}
+
+.laundry-benefits li::before{
+    content:"✓";
+    color:#8A9567;
+    font-weight:bold;
+}
+
+/* ---------- BUTTON ---------- */
+
+.laundry-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+
+    background:#8A9567;
+    color:white;
+    text-decoration:none;
+
+    padding:16px 32px;
+    border-radius:999px;
+
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:1px;
+
+    transition:0.3s ease;
+}
+
+.laundry-btn:hover{
+    background:#747F57;
+    transform:translateY(-2px);
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width:767px){
+
+    .laundry-section{
+        padding:80px 0;
+    }
+
+    .laundry-container{
+        grid-template-columns:1fr;
+        padding:0 24px;
+        gap:42px;
+        
+    }
+
+    .laundry-image img{
+        max-width:100%;
+    }
+z
+    .laundry-content{
+        max-width:100%;
+    }
+
+    .laundry-content h2{
+        font-size:42px;
+        white-space:normal;
+    }
+
+    .laundry-price{
+        font-size:42px;
+    }
+
+    .laundry-desc{
+        font-size:16px;
+    }
+}
+
+/* =======================================
+   PURELYHOME Laundry Tip Bar
+======================================= */
+/* ===== PURELYHOME Laundry Tip ===== */
+
+.laundry-tip-bar{
+    max-width:1280px;
+    margin:32px auto 48px;
+    padding:18px 28px;
+
+    display:grid;
+    grid-template-columns:auto auto 1fr;
+    align-items:center;
+    column-gap:20px;
+
+    background: #eaf3ee;
+    border-top:1px solid #EEF3F2;
+    border-bottom:1px solid #EEF3F2;
+}
+
+.tip-label{
+    font-size:11px;
+    letter-spacing:3px;
+    color:#7EB6AC;
+    font-weight:600;
+    white-space:nowrap;
+}
+
+.laundry-tip-bar h3{
+    margin:0;
+    font-family:"Cormorant Garamond", serif;
+    font-size:28px;          /* ← 改小 */
+    font-weight:400;
+    color:#2F4C4A;
+    white-space:nowrap;       /* ← 不准换行 */
+}
+
+.laundry-tip-bar p{
+    margin:0;
+    font-size:14px;
+    line-height:1.6;
+    color:#667977;
+    text-align:left;
+}
+
+.laundry-tip-bar strong{
+    color:#2F4C4A;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.laundry-tip-bar{
+        grid-template-columns:1fr;
+        row-gap:10px;
+        padding:20px;
+    }
+
+.laundry-tip-bar h3{
+        font-size:24px;
+    }
+
+.laundry-tip-bar p{
+        font-size:13px;
+    }
+
+}
+/* ===== CART DRAWER ===== */
+
+.cart-items{
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  min-height: 0;
+}
+
+.cart-item{
+    display:flex;
+    gap:14px;
+    align-items:center;
+    padding-bottom:16px;
+    border-bottom:1px solid #f1eee8;
+}
+
+.cart-item img{
+    width:78px;
+    height:78px;
+    object-fit:cover;
+    border-radius:16px;
+    background:#faf7f2;
+}
+
+.cart-info{
+    flex:1;
+}
+
+.cart-info h4{
+    margin:0;
+    font-size:15px;
+    color:#3d3a34;
+    font-weight:500;
+}
+
+.cart-info p{
+    margin-top:6px;
+    color:#8d8577;
+    font-size:13px;
+}
+
+.cart-price{
+    margin-top:8px;
+    font-weight:600;
+    color:#57503d;
+}
+
+.cart-remove{
+    cursor:pointer;
+    font-size:20px;
+    color:#b8ad97;
+    transition:.25s;
+}
+
+.cart-remove:hover{
+    color:#8a7f6c;
+}
+
+.cart-qty{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:10px;
+}
+
+.qty-btn{
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    border:1px solid #ddd4c1;
+    background:white;
+    cursor:pointer;
+    font-size:16px;
+    color:#69604d;
+}
+
+.qty-btn:hover{
+    background:#f7f3eb;
+}
+
+.qty-number{
+    width:18px;
+    text-align:center;
+    font-weight:500;
+}
+
+.checkout-btn{
+    width:100%;
+    background:#A7B36B;
+    color:white;
+    border:none;
+    padding:16px;
+    border-radius:999px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+    margin-top:18px;
+}
+
+.checkout-btn:hover{
+    background:#8F9E56;
+    transform:translateY(-1px);
+}
+
+.cart-total{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:18px;
+    border-top:1px solid #ece7dc;
+    font-size:18px;
+    font-weight:600;
+    color:#4d4638;
+}
+
+.cart-total span:last-child{
+    color:#768641;
+}
+
+/* ===== SHOPPING CART DRAWER ===== */
+
+.cart-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.35);
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s ease;
+    z-index: 9998;
+}
+
+.cart-overlay.open{
+    opacity: 1;
+    visibility: visible;
+}
+.cart-drawer{
+  position: fixed !important;
+  top: 0;
+  right: -100%;
+   /* ⭐ 不要用 100vh */
+  background: #fff;
+  box-shadow: -10px 0 30px rgba(0,0,0,.15);
+  transition: right .35s ease;
+  z-index: 99999;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-drawer.open{
+  right: 0 !important;
+}
+
+.cart-drawer.open{
+    right: 0 !important;
+}
+
+.cart-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:24px;
+    border-bottom:1px solid #eee;
+}
+
+#close-cart{
+    background:none;
+    border:none;
+    font-size:26px;
+    cursor:pointer;
+}
+
+.cart-items{
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    padding-bottom: 170px;   /* ⭐ 给 footer 留位置 */
+}
+
+.cart-footer{
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding: 20px;
+  border-top: 1px solid #eee;
+  z-index: 10;
+}
+
+.checkout-btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:999px;
+    background:#a5af63;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.qty-control{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-top:10px;
+}
+
+.qty-control button{
+    width:28px;
+    height:28px;
+    border:none;
+    border-radius:50%;
+    background:#E8E7C9;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:600;
+}
+
+.qty-control span{
+    min-width:18px;
+    text-align:center;
+    font-weight:600;
+}
+
+.cart-btn {
+    position: relative;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #6B675B;
+    padding: 6px;
+}
+
+.nav-icon {
+    width: 24px;
+    height: 24px;
+}
+
+#cart-count {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #C8C68A;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.status-badge{
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:600;
+}
+
+.pending{
+  background:#FFF7E8;
+  color:#C58A00;
+}
+
+.shipped{
+  background:#EDF9F1;
+  color:#1F8F4C;
+}
+
+.status-badge{
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:600;
+}
+
+.pending{
+  background:#FFF7E8;
+  color:#C58A00;
+}
+
+.shipped{
+  background:#EDF9F1;
+  color:#168B47;
+}
+
+.view-btn{
+  background:#D9B650;
+  color:white;
+  border:none;
+  border-radius:8px;
+  padding:8px 14px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.view-btn:hover{
+  opacity:.9;
+}
+
+.sidebar{
+    width:220px;
+    background:#FFFEFC;
+    border-right:1px solid #F0EBE2;
+    padding:40px 24px;
+}
+
+.sidebar h2{
+    font-family:"Cormorant Garamond",serif;
+    font-size:32px;
+    color:#43352B;
+    margin-bottom:40px;
+}
+
+.sidebar a{
+    display:block;
+    padding:12px 14px;
+    border-radius:12px;
+    color:#6B6257;
+    margin-bottom:8px;
+    text-decoration:none;
+    transition:.2s;
+}
+
+.sidebar a:hover{
+    background:#F8F4EC;
+    color:#C59A2C;
+}
+
+.sidebar a.active{
+    background:#F7F0DE;
+    color:#B88A16;
+    font-weight:600;
+}
+
+
+.header-icons{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.track-order-btn{
+    text-decoration:none;
+    color:#8A6842;
+    font-size:13px;
+    font-weight:600;
+    padding:6px 12px;
+    border:1px solid #D8C08E;
+    border-radius:20px;
+    transition:.25s;
+}
+
+.track-order-btn:over{
+    background:#D8C08E;
+    color:white;
+}
+
+/* ===== Floating Contact Button ===== */
+
+.contact-floating{
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    padding:14px 18px;
+
+    background:#D8D6A6;
+    color:#55604A;
+
+    border-radius:999px;
+
+    text-decoration:none;
+
+    font-size:14px;
+    font-weight:500;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+    transition:.25s ease;
+
+    z-index:9999;
+}
+
+.contact-floating:hover{
+    transform:translateY(-2px);
+    background:#CFCB95;
+}
+
+.contact-icon{
+    font-size:18px;
+}
+
+.contact-text{
+    letter-spacing:.3px;
+}
+
+@media (max-width:768px){
+
+.contact-floating{
+    bottom:18px;
+    right:18px;
+    padding:12px 16px;
+    font-size:13px;
+}
+
+.contact-text{
+    display:none;
+}
+
+}
+
+
+.footer-social{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:26px;
+    flex-wrap:wrap;
+    margin:38px 0 30px;
+}
+
+.footer-social a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    color:#5B5247;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:500;
+
+    transition:0.25s ease;
+}
+
+.footer-social a i{
+    font-size:18px;
+    color:#3a3d2c;
+}
+
+.footer-social a:hover{
+    color:#9AA36B;
+    transform:translateY(-2px);
+}
+
+.footer-social a:hover i{
+    color:#7D8656;
+}
+
+/* ===== DESKTOP FIX ===== */
+
+
+@media (min-width:901px){
+
+    .menu-btn{
+        display:none !important;
+    }
+
+    .nav-links{
+        display:flex !important;
+        position:static !important;
+        flex-direction:row !important;
+        width:auto !important;
+        background:none !important;
+        padding:0 !important;
+        box-shadow:none !important;
+        border-radius:0 !important;
+        gap:36px;
+    }
+
+    .nav-icons{
+        display:flex !important;
+    }
+}
+
+/* Desktop Hide Mobile Menu Buttons */
+@media (min-width:901px){
+  .mobile-track-btn,
+  .mobile-cart-btn{
+    display:none !important;
+  }
+}
+
+/* =========================
+   iPad Mini ONLY (768 x 1024)
+========================= */
+@media only screen
+and (width: 768px)
+and (height: 1024px){
+
+  /* 隐藏手机 Menu */
+  .menu-btn{
+    display:none !important;
+  }
+
+  /* Desktop Navbar */
+  .navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 22px;
+    gap:16px;
+  }
+
+  /* Logo */
+  .logo{
+    font-size:30px;
+    letter-spacing:2px;
+    flex-shrink:0;
+  }
+
+  /* 中间菜单 */
+  .nav-links{
+    display:flex !important;
+    flex:1;
+    justify-content:center;
+    gap:18px;
+  }
+
+  .nav-links a{
+    font-size:12px;
+    white-space:nowrap;
+    letter-spacing:1px;
+  }
+
+  /* 右边按钮 */
+  .nav-actions{
+    display:flex !important;
+    align-items:center;
+    gap:10px;
+    flex-shrink:0;
+  }
+
+  .track-btn{
+    display:inline-flex !important;
+    padding:9px 14px;
+    font-size:11px;
+    white-space:nowrap;
+  }
+
+  .cart-icon{
+    display:flex !important;
+  }
+}
+
+/* iPad Mini ONLY — remove duplicated buttons */
+@media only screen and (width:768px) and (height:1024px){
+
+  /* 隐藏手机版按钮 */
+  .mobile-track-btn,
+  .mobile-cart-btn{
+    display:none !important;
+  }
+
+  /* 保留 Desktop 按钮 */
+  .nav-actions{
+    display:flex !important;
+    align-items:center;
+    gap:12px;
+  }
+
+  .track-btn,
+  .cart-icon{
+    display:flex !important;
+  }
+}

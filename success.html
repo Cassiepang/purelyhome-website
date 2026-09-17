@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Order Confirmed | PurelyHome</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: "Georgia", serif;
+    background:#FAF8F5;
+    color:#3D342B;
+}
+
+.container{
+    max-width:700px;
+    margin:70px auto;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    border-radius:24px;
+    padding:45px 35px;
+    text-align:center;
+    box-shadow:0 10px 35px rgba(0,0,0,.05);
+}
+
+.check{
+    width:90px;
+    height:90px;
+    background:#D7C67A;
+    border-radius:50%;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:42px;
+    color:white;
+}
+
+h1{
+    margin-top:25px;
+    font-size:34px;
+    font-weight:400;
+}
+
+.subtitle{
+    margin-top:12px;
+    color:#7B7269;
+    line-height:1.6;
+}
+
+.order-box{
+    background:#F8F6F1;
+    border-radius:18px;
+    padding:24px;
+    margin-top:35px;
+    text-align:left;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    margin:14px 0;
+    font-size:15px;
+}
+
+.row span:first-child{
+    color:#8A827A;
+}
+
+.total{
+    border-top:1px solid #E8E2D7;
+    margin-top:18px;
+    padding-top:18px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.btn{
+    display:block;
+    width:100%;
+    margin-top:30px;
+    padding:16px;
+    border-radius:999px;
+    background:#D7C67A;
+    color:white;
+    text-decoration:none;
+    text-align:center;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.btn:hover{
+    background:#C9B760;
+}
+
+.small{
+    margin-top:25px;
+    font-size:13px;
+    color:#8A827A;
+    line-height:1.6;
+}
+
+.loading{
+    text-align:center;
+    padding:40px;
+    color:#8A827A;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<div class="check">✓</div>
+
+<h1>Thank You!</h1>
+
+<p class="subtitle">
+Your order has been placed successfully.<br>
+We’re preparing your PurelyHome order with care.
+</p>
+
+<div id="loading" class="loading">
+Loading your order...
+</div>
+
+<div id="orderSection" style="display:none;">
+
+<div class="order-box">
+
+<div class="row">
+<span>Order Number</span>
+<strong id="orderNumber">#---</strong>
+</div>
+
+<div class="row">
+<span>Customer</span>
+<strong id="customerName"></strong>
+</div>
+
+<div class="row">
+<span>Email</span>
+<strong id="customerEmail"></strong>
+</div>
+
+<div class="row">
+<span>Phone</span>
+<strong id="customerPhone"></strong>
+</div>
+
+<div class="row">
+<span>Shipping Address</span>
+<strong id="customerAddress" style="text-align:right;"></strong>
+</div>
+
+<div class="row total">
+<span>Total</span>
+<strong id="orderTotal">RM 0.00</strong>
+</div>
+
+</div>
+
+<a href="index.html" class="btn">
+Continue Shopping
+</a>
+
+<p class="small">
+A confirmation email will be sent once your order is processed.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script type="module">
+import { supabase } from "./supabase.js";
+
+const loading = document.getElementById("loading");
+const orderSection = document.getElementById("orderSection");
+
+const params = new URLSearchParams(window.location.search);
+const orderId = Number(params.get("id"));
+
+console.log("Order ID:", orderId);
+
+if (!orderId) {
+  loading.innerHTML = "Order not found.";
+} else {
+
+  const { data, error } = await supabase
+    .from("order")
+    .select("*")
+    .eq("id", orderId)
+    .maybeSingle();
+
+  console.log("Supabase data:", data);
+  console.log("Supabase error:", error);
+
+  if (error) {
+    loading.innerHTML = error.message;
+  } else if (!data) {
+    loading.innerHTML = "Order not found.";
+  } else {
+
+    loading.style.display = "none";
+    orderSection.style.display = "block";
+
+    document.getElementById("orderNumber").textContent = "#" + data.id;
+    document.getElementById("customerName").textContent = data.name;
+    document.getElementById("customerEmail").textContent = data.email;
+    document.getElementById("customerPhone").textContent = data.phone;
+    document.getElementById("customerAddress").innerHTML =
+      `${data.address}<br>${data.postcode} ${data.city}<br>${data.state}`;
+
+    document.getElementById("orderTotal").textContent =
+      `RM ${Number(data.total_price).toFixed(2)}`;
+  }
+}
+</script>
+</body>
+</html>

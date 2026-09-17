@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PurelyHome Admin Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+
+  <div class="sidebar">
+
+    <div class="logo">
+      PurelyHome
+     
+    </div>
+
+    <div class="menu">
+      <a href="admin.html" class="active">📦 Orders</a>
+    
+      <a href="index.html">🏠 Website Home</a>
+    </div>
+
+  </div>
+
+  <!-- MAIN -->
+
+  <div class="main">
+
+    <!-- HEADER -->
+
+    <div class="header">
+      <h1>Orders Dashboard</h1>
+    </div>
+
+    <!-- SUMMARY -->
+
+    <div class="summary-grid">
+
+      <div class="summary-card">
+        <p>Total Orders</p>
+        <h2 id="totalOrders">0</h2>
+      </div>
+
+      <div class="summary-card">
+        <p>Revenue</p>
+        <h2 id="totalRevenue">RM 0</h2>
+      </div>
+
+      <div class="summary-card">
+        <p>Pending</p>
+        <h2 id="pendingOrders">0</h2>
+      </div>
+
+      <div class="summary-card">
+        <p>Shipped</p>
+        <h2 id="shippedOrders">0</h2>
+      </div>
+
+    </div>
+
+    <!-- TABLE -->
+
+    <div class="table-card">
+
+      <div class="table-header">
+
+        <h3>Latest Orders</h3>
+
+        <div class="search-box">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search customer..."
+          >
+        </div>
+
+      </div>
+
+      <table>
+
+        <thead>
+
+        <tr>
+
+          <th>Order</th>
+
+          <th>Customer</th>
+
+          <th>Phone</th>
+         
+          <th>Total</th>
+
+          <th>Status</th>
+
+          <th>Receipt</th>
+
+          <th>Action</th>
+             <th>Notes</th>
+        </tr>
+
+        </thead>
+
+        <tbody id="ordersTable">
+
+        <!-- JS 自动生成 -->
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script type="module" src="admin.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,369 @@
+/* ==========================================
+   PURELYHOME SETTINGS PAGE
+========================================== */
+
+:root{
+  --bg:#F8F6F2;
+  --white:#FFFFFF;
+  --border:#ECE5DA;
+
+  --gold:#C89B54;
+  --gold-light:#F8F2E8;
+
+  --text:#332C25;
+  --sub:#8E8173;
+
+  --green:#59B27A;
+  --danger:#E26A6A;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:var(--bg);
+  font-family:"Inter",sans-serif;
+  color:var(--text);
+}
+
+/* ================= DASHBOARD ================= */
+
+.dashboard{
+  display:grid;
+  grid-template-columns:230px 1fr;
+  min-height:100vh;
+}
+
+/* Sidebar */
+
+.sidebar{
+  background:white;
+  border-right:1px solid var(--border);
+  padding:40px 24px;
+}
+
+.brand h2{
+  font-family:"Cormorant Garamond",serif;
+  font-size:38px;
+  color:#44372E;
+}
+
+.brand p{
+  margin-top:6px;
+  color:#A59B90;
+  font-size:13px;
+}
+
+.sidebar nav{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:45px;
+}
+
+.sidebar nav a{
+  text-decoration:none;
+  color:#756A5E;
+  padding:14px 16px;
+  border-radius:14px;
+  transition:.25s;
+  font-weight:500;
+}
+
+.sidebar nav a:hover{
+  background:var(--gold-light);
+}
+
+.sidebar nav a.active{
+  background:var(--gold-light);
+  color:var(--gold);
+  font-weight:600;
+}
+
+/* ================= CONTENT ================= */
+
+.content{
+  padding:42px;
+}
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:34px;
+}
+
+.header h1{
+  font-family:"Cormorant Garamond",serif;
+  font-size:56px;
+}
+
+.header p{
+  margin-top:8px;
+  color:var(--sub);
+}
+
+/* ================= BUTTONS ================= */
+
+.primary-btn,
+.secondary-btn,
+.logout-btn{
+  border:none;
+  cursor:pointer;
+  border-radius:999px;
+  padding:12px 24px;
+  font-weight:600;
+  transition:.25s;
+}
+
+.primary-btn{
+  background:var(--gold);
+  color:white;
+}
+
+.primary-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 20px rgba(200,155,84,.25);
+}
+
+.secondary-btn{
+  background:white;
+  border:1px solid var(--border);
+}
+
+.secondary-btn:hover{
+  background:var(--gold-light);
+}
+
+.logout-btn{
+  background:#FFF0F0;
+  color:var(--danger);
+  margin-top:25px;
+}
+
+.logout-btn:hover{
+  background:#FFE4E4;
+}
+
+/* ================= SETTINGS CARD ================= */
+
+.settings-card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:26px;
+  padding:28px;
+  margin-bottom:24px;
+}
+
+.card-title{
+  margin-bottom:22px;
+}
+
+.card-title h3{
+  font-family:"Cormorant Garamond",serif;
+  font-size:34px;
+  color:#45382F;
+}
+
+.card-title p{
+  margin-top:5px;
+  color:var(--sub);
+}
+
+/* ================= FORM ================= */
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+  margin-bottom:18px;
+}
+
+.field label{
+  margin-bottom:8px;
+  color:#6E6458;
+  font-size:14px;
+  font-weight:600;
+}
+
+.field input,
+.field textarea,
+.field select{
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  font-size:15px;
+  outline:none;
+  background:white;
+}
+
+.field textarea{
+  resize:none;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+  border-color:var(--gold);
+}
+
+/* ================= HERO BANNER ================= */
+
+.banner-upload{
+  display:flex;
+  align-items:center;
+  gap:22px;
+  flex-wrap:wrap;
+}
+
+.banner-upload img{
+  width:280px;
+  height:160px;
+  object-fit:cover;
+  border-radius:20px;
+  border:1px solid var(--border);
+  background:#F7F4F1;
+}
+
+.banner-upload input{
+  flex:1;
+}
+
+/* ================= TOGGLE ================= */
+
+.toggle-list{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.toggle-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 18px;
+  background:#FAF8F5;
+  border-radius:18px;
+  border:1px solid var(--border);
+}
+
+.toggle-item span{
+  font-weight:500;
+}
+
+/* Pretty Toggle */
+
+.toggle-item input[type="checkbox"]{
+  appearance:none;
+  width:52px;
+  height:30px;
+  border-radius:999px;
+  background:#D8D8D8;
+  position:relative;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.toggle-item input[type="checkbox"]::before{
+  content:"";
+  position:absolute;
+  width:24px;
+  height:24px;
+  background:white;
+  border-radius:50%;
+  top:3px;
+  left:3px;
+  transition:.25s;
+}
+
+.toggle-item input[type="checkbox"]:checked{
+  background:var(--gold);
+}
+
+.toggle-item input[type="checkbox"]:checked::before{
+  transform:translateX(22px);
+}
+
+/* ================= PROFILE ================= */
+
+.profile-box{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin-bottom:24px;
+}
+
+.profile-image{
+  width:74px;
+  height:74px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid var(--gold-light);
+}
+
+.profile-box h4{
+  font-size:18px;
+}
+
+.profile-box p{
+  color:var(--sub);
+  font-size:14px;
+}
+
+/* ================= SUCCESS MESSAGE ================= */
+
+.save-success{
+  margin-top:18px;
+  padding:14px 18px;
+  border-radius:14px;
+  background:#EDF9F2;
+  color:var(--green);
+  display:none;
+  font-weight:600;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+  .dashboard{
+    grid-template-columns:1fr;
+  }
+
+  .sidebar{
+    display:none;
+  }
+
+  .content{
+    padding:24px;
+  }
+
+  .header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:18px;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .banner-upload{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .banner-upload img{
+    width:100%;
+    height:auto;
+  }
+
+}

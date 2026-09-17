@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PurelyHome Admin | Settings</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="settings.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+  <!-- SIDEBAR -->
+
+  <aside class="sidebar">
+
+    <div class="brand">
+      <h2>PurelyHome</h2>
+      <p>Admin Dashboard</p>
+    </div>
+
+    <nav>
+
+      <a href="admin.html">Dashboard</a>
+
+      <a href="order.html">Orders</a>
+
+      <a href="customer.html">Customers</a>
+
+      <a href="products.html">Products</a>
+
+      <a href="settings.html" class="active">Settings</a>
+
+    </nav>
+
+  </aside>
+
+  <!-- MAIN -->
+
+  <main class="content">
+
+    <!-- HEADER -->
+
+    <section class="header">
+
+      <div>
+        <h1>Settings</h1>
+        <p>Manage your PurelyHome store information and website.</p>
+      </div>
+
+      <button id="saveSettingsBtn" class="primary-btn">
+        Save Changes
+      </button>
+
+    </section>
+
+    <!-- STORE INFORMATION -->
+
+    <section class="settings-card">
+
+      <div class="card-title">
+        <h3>Store Information</h3>
+        <p>Business contact details shown on your website.</p>
+      </div>
+
+      <div class="form-grid">
+
+        <div class="field">
+          <label>Store Name</label>
+          <input id="storeName" type="text" value="PurelyHome">
+        </div>
+
+        <div class="field">
+          <label>WhatsApp Number</label>
+          <input id="storeWhatsapp" type="text" placeholder="+60 12-3456789">
+        </div>
+
+        <div class="field">
+          <label>Email Address</label>
+          <input id="storeEmail" type="email" placeholder="hello@purelyhome.com">
+        </div>
+
+        <div class="field">
+          <label>Instagram</label>
+          <input id="storeInstagram" type="text" placeholder="@purelyhome.my">
+        </div>
+
+      </div>
+
+      <div class="field">
+        <label>Business Address</label>
+
+        <textarea
+          id="storeAddress"
+          rows="3"
+          placeholder="Johor, Malaysia"
+        ></textarea>
+
+      </div>
+
+    </section>
+
+    <!-- SHIPPING -->
+
+    <section class="settings-card">
+
+      <div class="card-title">
+        <h3>Shipping Settings</h3>
+        <p>Delivery charges and free shipping settings.</p>
+      </div>
+
+      <div class="form-grid">
+
+        <div class="field">
+          <label>Free Shipping Over (RM)</label>
+          <input id="freeShipping" type="number" value="80">
+        </div>
+
+        <div class="field">
+          <label>West Malaysia Shipping (RM)</label>
+          <input id="westShipping" type="number" value="8">
+        </div>
+
+        <div class="field">
+          <label>East Malaysia Shipping (RM)</label>
+          <input id="eastShipping" type="number" value="15">
+        </div>
+
+        <div class="field">
+
+          <label>Self Pickup</label>
+
+          <select id="pickupStatus">
+            <option value="true">Enabled</option>
+            <option value="false">Disabled</option>
+          </select>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- VOUCHER -->
+
+    <section class="settings-card">
+
+      <div class="card-title">
+        <h3>Discount & Voucher</h3>
+        <p>Create promotional codes for customers.</p>
+      </div>
+
+      <div class="form-grid">
+
+        <div class="field">
+          <label>Voucher Code</label>
+          <input id="voucherCode" type="text" placeholder="WELCOME10">
+        </div>
+
+        <div class="field">
+          <label>Discount (%)</label>
+          <input id="voucherDiscount" type="number" value="10">
+        </div>
+
+        <div class="field">
+          <label>Minimum Spend (RM)</label>
+          <input id="voucherMinimum" type="number" value="50">
+        </div>
+
+        <div class="field">
+          <label>Expiry Date</label>
+          <input id="voucherExpiry" type="date">
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- WEBSITE APPEARANCE -->
+
+    <section class="settings-card">
+
+      <div class="card-title">
+        <h3>Website Appearance</h3>
+        <p>Homepage banner and announcement bar.</p>
+      </div>
+
+      <!-- Banner -->
+
+      <div class="field">
+
+        <label>Homepage Hero Banner</label>
+
+        <div class="banner-upload">
+
+          <img
+            id="bannerPreview"
+            src="images/hero.jpeg"
+            alt="Banner Preview"
+          >
+
+          <input
+            id="bannerImage"
+            type="file"
+            accept="image/*"
+          >
+
+        </div>
+
+      </div>
+
+      <div class="field">
+
+        <label>Announcement Bar</label>
+
+        <input
+          id="announcementBar"
+          type="text"
+          value="FREE SHIPPING ON ORDERS OVER RM80 ✨"
+        >
+
+      </div>
+
+      <div class="field">
+
+        <label>Homepage Video URL (Optional)</label>
+
+        <input
+          id="homepageVideo"
+          type="text"
+          placeholder="Paste TikTok / Instagram Reel URL"
+        >
+
+      </div>
+
+    </section>
+
+    <!-- PAYMENT -->
+
+    <section class="settings-card">
+
+      <div class="card-title">
+        <h3>Payment Methods</h3>
+        <p>Enable payment methods available during checkout.</p>
+      </div>
+
+      <div class="toggle-list">
+
+        <div class="toggle-item">
+          <span>DuitNow QR</span>
+          <input id="duitnowToggle" type="checkbox" checked>
+        </div>
+
+        <div class="toggle-item">
+          <span>FPX Online Banking</span>
+          <input id="fpxToggle" type="checkbox" checked>
+        </div>
+
+        <div class="toggle-item">
+          <span>Touch 'n Go eWallet</span>
+          <input id="tngToggle" type="checkbox" checked>
+        </div>
+
+        <div class="toggle-item">
+          <span>Cash On Delivery</span>
+          <input id="codToggle" type="checkbox">
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ADMIN ACCOUNT -->
+
+    <section class="settings-card">
+
+      <div class="card-title">
+        <h3>Admin Account</h3>
+        <p>Manage your login information.</p>
+      </div>
+
+      <div class="profile-box">
+
+        <img src="images/hero1.jpeg" class="profile-image">
+
+        <div>
+          <h4>Cassie Pang</h4>
+          <p>Owner · PurelyHome</p>
+        </div>
+
+      </div>
+
+      <div class="form-grid">
+
+        <div class="field">
+          <label>Email</label>
+          <input type="email" value="cassie@purelyhome.com">
+        </div>
+
+        <div class="field">
+          <label>Change Password</label>
+          <input type="password" placeholder="New Password">
+        </div>
+
+      </div>
+
+      <button class="logout-btn">
+        Logout
+      </button>
+
+    </section>
+
+  </main>
+
+</div>
+
+<script type="module" src="settings.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PurelyHome | Payment</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#FBF9F5;
+    font-family:'Poppins',sans-serif;
+    color:#4E4339;
+}
+
+.container{
+    max-width:480px;
+    margin:30px auto;
+    padding:20px;
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:28px;
+}
+
+.logo h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:42px;
+    font-weight:600;
+}
+
+.logo p{
+    color:#B99745;
+    letter-spacing:3px;
+    font-size:11px;
+}
+
+.card{
+    background:white;
+    border-radius:22px;
+    padding:22px;
+    margin-bottom:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.05);
+}
+
+.title{
+    font-size:11px;
+    color:#B99745;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.amount{
+    text-align:center;
+    font-size:40px;
+    color:#B88A22;
+    font-weight:600;
+}
+
+.order{
+    text-align:center;
+    margin-top:8px;
+    color:#888;
+    font-size:13px;
+}
+
+.qr{
+    width:260px;
+    display:block;
+    margin:10px auto 15px;
+    border-radius:20px;
+}
+
+.company{
+    text-align:center;
+    font-weight:600;
+}
+
+.bank{
+    text-align:center;
+    color:#888;
+    font-size:13px;
+    margin-top:5px;
+}
+
+.details p{
+    margin-bottom:14px;
+    line-height:1.6;
+}
+
+.details span{
+    color:#B99745;
+    font-weight:500;
+}
+/* Upload Box */
+.upload-box{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    width:100%;
+    min-height:220px;
+
+    border:2px dashed #E8C98A;
+    border-radius:20px;
+
+    background:#FFFCF7;
+
+    cursor:pointer;
+    overflow:hidden;
+    transition:.3s ease;
+}
+
+.upload-box:hover{
+    background:#FFF8EE;
+}
+
+.upload-content{
+    text-align:center;
+    color:#B88A3B;
+    padding:40px 20px;
+}
+
+.upload-content .icon{
+    font-size:42px;
+    margin-bottom:14px;
+}
+
+.upload-content h4{
+    margin:0;
+    font-size:20px;
+    font-weight:600;
+    color:#B88A3B;
+}
+
+.upload-content small{
+    display:block;
+    margin-top:10px;
+    color:#999;
+    font-size:13px;
+}
+
+/* Preview Image */
+.preview{
+    display:none;
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:18px;
+}
+/* Steps */
+
+.step{
+    display:flex;
+    gap:14px;
+    margin-bottom:18px;
+}
+
+.circle{
+
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    background:#D4AF37;
+    color:white;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:13px;
+    font-weight:600;
+
+    flex-shrink:0;
+
+}
+
+.note{
+
+    background:#FFF7E3;
+    border-radius:16px;
+    padding:16px;
+
+    color:#856C34;
+    font-size:13px;
+    line-height:1.6;
+
+    margin-top:15px;
+
+}
+
+.pay-btn{
+
+    width:100%;
+    padding:17px;
+    border:none;
+    border-radius:999px;
+
+    background:#D4AF37;
+    color:white;
+
+    font-size:15px;
+    font-weight:600;
+
+    cursor:pointer;
+    margin-top:24px;
+
+}
+
+.pay-btn:hover{
+    background:#C39B24;
+}
+
+.back{
+    text-align:center;
+    margin-top:18px;
+}
+
+.back a{
+    text-decoration:none;
+    color:#888;
+    font-size:13px;
+}
+
+footer{
+    text-align:center;
+    color:#B2A694;
+    margin:35px 0;
+    font-size:12px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+<h1>PurelyHome</h1>
+<p>Naturally clean.
+Softly scented.</p>
+</div>
+
+<!-- Amount -->
+
+<div class="card">
+
+<div class="title">Amount To Pay</div>
+
+<div class="amount" id="amount">RM 0.00</div>
+
+<div class="order" id="orderNumber">
+  Order #000
+</div>
+
+
+
+</div>
+
+<!-- QR -->
+
+<div class="card">
+
+<img src="images/MCTRONIC_Myinvois_QR.jpeg" class="qr">
+
+<div class="company">
+MCTRONIC (SENAI) SDN. BHD.
+</div>
+
+<div class="bank">
+RHB Bank DuitNow / MyInvois QR
+</div>
+
+</div>
+
+<!-- Payment Details -->
+
+<div class="card details">
+
+<div class="title">Payment Details</div>
+
+<p><span>Pay To</span><br>
+MCTRONIC (SENAI) SDN. BHD.</p>
+
+<p><span>Business Registration</span><br>
+202301027598 (1521521-P)</p>
+
+<p><span>TIN</span><br>
+C58139273060</p>
+
+<p><span>Phone</span><br>
++60 12-210 8984</p>
+
+</div>
+
+<!-- Upload Proof -->
+
+<div class="card">
+
+  <div class="title">Upload Payment Proof</div>
+
+  <label class="upload-box" id="uploadBox">
+
+    <input
+      type="file"
+      id="proofInput"
+      accept="image/png,image/jpeg,image/jpg"
+      hidden
+    >
+
+    <!-- Upload Placeholder -->
+    <div class="upload-content" id="uploadContent">
+      <div class="icon">📷</div>
+
+      <h4>Tap to upload your receipt</h4>
+
+      <small>PNG / JPG / JPEG</small>
+    </div>
+
+    <!-- Receipt Preview -->
+    <img
+      id="preview"
+      class="preview"
+      alt="Payment Receipt Preview"
+    >
+
+  </label>
+
+</div>
+
+<!-- How To Pay -->
+
+<div class="card">
+
+<div class="title">How To Pay</div>
+
+<div class="step">
+<div class="circle">1</div>
+<div>Open your RHB, Maybank, CIMB, Touch 'n Go, or any banking application.</div>
+</div>
+
+<div class="step">
+<div class="circle">2</div>
+<div>Scan the DuitNow / MyInvois QR code above.</div>
+</div>
+
+<div class="step">
+<div class="circle">3</div>
+<div>Transfer the exact payment amount shown above.</div>
+</div>
+
+<div class="step">
+<div class="circle">4</div>
+<div>Upload your payment receipt and continue.</div>
+</div>
+
+<div class="note">
+Please upload your payment receipt after completing payment.
+Our team will verify your payment before preparing your order.
+</div>
+
+<button class="pay-btn" id="submitPayment">
+I've Made Payment
+</button>
+
+</div>
+
+<div class="back">
+<a href="checkout.html">← Back to Checkout</a>
+</div>
+
+<footer>
+© 2026 PurelyHome.
+</footer>
+
+</div>
+
+
+<!-- Supabase CDN -->
+<script type="module">
+import { supabase } from "./supabase.js";
+
+// Generate Random Order ID
+function generateOrderId() {
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  let id = "PH-";
+
+  for (let i = 0; i < 6; i++) {
+    id += chars[Math.floor(Math.random() * chars.length)];
+  }
+
+  return id;
+}
+
+/* ---------------- GET ORDER ID ---------------- */
+
+const params = new URLSearchParams(window.location.search);
+const orderId = params.get("id");
+
+/* ---------------- LOAD PAYMENT INFO ---------------- */
+
+async function loadPayment() {
+
+  if (!orderId) {
+    alert("Order ID not found.");
+    return;
+  }
+
+  const { data: order, error } = await supabase
+    .from("order")
+    .select("*")
+    .eq("public_id", orderId)
+    .single();
+
+    console.log("public_id", orderId);
+console.log("Order:", order);
+console.log("Error:", error);
+
+  if (error) {
+    console.error(error);
+    alert(error.message);
+    return;
+  }
+
+  console.log(order);
+
+  // Amount
+  document.getElementById("amount").innerHTML =
+    `RM ${Number(order.total_price).toFixed(2)}`;
+
+  // Order Number
+
+ document.getElementById("orderNumber").innerHTML =
+  `Order #${order.public_id}`;
+
+  // Customer
+  const customer = document.getElementById("customerName");
+  if(customer){
+    customer.innerHTML = order.name;
+  }
+
+}
+
+/* ---------------- LOAD WHEN PAGE OPEN ---------------- */
+
+loadPayment();
+
+/* ---------------- IMAGE PREVIEW ---------------- */
+
+// Upload Preview
+const input = document.getElementById("proofInput");
+const preview = document.getElementById("preview");
+const uploadContent = document.getElementById("uploadContent");
+const uploadBox = document.getElementById("uploadBox");
+
+input.addEventListener("change", () => {
+
+  const file = input.files[0];
+
+  if (!file) return;
+
+  preview.src = URL.createObjectURL(file);
+
+  preview.style.display = "block";
+
+  // Hide upload text
+  uploadContent.style.display = "none";
+
+  // Remove dashed border after upload
+  uploadBox.style.border = "none";
+  uploadBox.style.background = "#FFFFFF";
+});
+
+/* ---------------- SUBMIT PAYMENT ---------------- */
+document.getElementById("submitPayment").addEventListener("click", async () => {
+
+  if (!input.files.length) {
+    alert("Please upload your payment receipt.");
+    return;
+  }
+
+  const file = input.files[0];
+
+  const submitBtn = document.getElementById("submitPayment");
+  submitBtn.innerText = "Uploading...";
+  submitBtn.disabled = true;
+
+  // Upload receipt to Supabase Storage
+  const fileName = `receipt-${orderId}-${Date.now()}.${file.name.split(".").pop()}`;
+
+  const { error: uploadError } = await supabase.storage
+    .from("receipts")
+    .upload(fileName, file, {
+      cacheControl: "3600",
+      upsert: true,
+    });
+if (uploadError) {
+  console.log("UPLOAD ERROR:", uploadError);
+  alert(uploadError.message);
+  submitBtn.innerText = "Submit Payment";
+  submitBtn.disabled = false;
+  return;
+}
+
+  // Get public URL
+  const { data: urlData } = supabase.storage
+    .from("receipts")
+    .getPublicUrl(fileName);
+
+  const receiptUrl = urlData.publicUrl;
+
+  // Save receipt URL into orders table
+ // ===== Save receipt into Orders table =====
+
+const { data: updatedOrder, error: saveError } = await supabase
+ .from("order")
+.update({
+  receipt_url: receiptUrl,
+  payment_status: "Pending Verification"
+})
+.eq("public_id", orderId)   // ✅
+.select();
+
+console.log("UPDATED ORDER:", updatedOrder);
+console.log("SAVE ERROR:", saveError);
+
+if (saveError) {
+  alert(saveError.message);
+
+  submitBtn.disabled = false;
+  submitBtn.innerText = "Submit Payment";
+  return;
+}
+
+// ⭐ 很重要：确认真的更新到一笔订单
+if (!updatedOrder || updatedOrder.length === 0) {
+  alert("Order not found.");
+
+  submitBtn.disabled = false;
+  submitBtn.innerText = "Submit Payment";
+  return;
+}
+
+alert("Payment submitted successfully!");
+window.location.href = `thankyou.html?id=${orderId}`;
+});
+
+</script>
+</body>
+</html>

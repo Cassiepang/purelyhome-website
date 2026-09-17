@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PURELYHOME | White Tea Signature</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- FREE SHIPPING BAR -->
+<div class="shipping-bar">
+  Free Shipping on Orders Over RM120 (West Malaysia)
+</div>
+
+<!-- NAVBAR -->
+<header class="navbar">
+ 
+  <div class="logo">
+    <a href="#hero">PURELYHOME</a>
+  </div>
+
+  <!-- Mobile Menu Button -->
+  <button class="menu-btn" aria-label="Menu">&#9776;</button>
+
+
+
+  <nav class="nav-links">
+    <a href="#story">STORY</a>
+    <a href="#how-to-use">HOW TO USE</a>
+    <a href="#white-tea-product">PRODUCT</a>
+    <a href="#reviews">REVIEWS</a>
+    <a href="#faq">FAQ</a>
+    
+   <!-- Mobile only -->
+  <a href="track-order.html" class="mobile-track-btn ">TRACK ORDER</a>
+
+  <a href="#" class="mobile-cart-btn ">
+    🛒 CART (<span id="cart-count-mobile">0</span>)
+  </a>
+
+  </nav>
+
+  <div class="nav-icons">
+
+    <div class="header-icons">
+
+  <a href="track-order.html" class="track-order-btn">
+      Track Order
+  </a>
+
+  
+
+</div>
+   
+
+    <!-- Shopping Bag -->
+<button id="cart-btn" class="cart-btn">
+  <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+    <path d="M7 9V7a5 5 0 0 1 10 0v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M5 9h14l-1 10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 9Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+  </svg>
+
+  <span id="cart-count">0</span>
+</button>
+ 
+  </div>
+</header>
+
+
+
+<section class="hero">
+
+    <div class="hero-overlay">
+        <span class="hero-tag">WHITE TEA SIGNATURE</span>
+
+        <h1 class="hero-title">
+            Naturally clean.<br>
+            Softly scented.
+        </h1>
+
+        <p class="hero-text">
+            Plant-based laundry sheets infused with a delicate White Tea fragrance.
+            Gentle on fabrics, beautifully fresh for every wash.
+        </p>
+
+        <a href="#white-tea-product" class="hero-btn">SHOP NOW</a>
+    </div>
+
+    <img class="hero-bg"
+         src="images/heroimage.jpeg"
+         alt="White Tea Hero">
+
+</section>
+  <!-- BRAND PROMISE -->
+  <section class="benefits">
+
+    <div class="benefit">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
+  stroke="#8A8B66" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 2L13.8 7.2L19 9L13.8 10.8L12 16L10.2 10.8L5 9L10.2 7.2L12 2Z"/>
+  <path d="M18.5 2L19.2 4L21.2 4.7L19.2 5.4L18.5 7.4L17.8 5.4L15.8 4.7L17.8 4Z"/>
+</svg>
+      <h3>
+        Clean that Breathes
+      </h3>
+      <p>Fresh, airy clealiness that feels light on every fabric.</p>
+    </div>
+
+    <div class="benefit">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
+  stroke="#8A8B66" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M20 4C12 4 6 8 6 15C6 18.5 8.5 21 12 21C18 21 20 15 20 4Z"/>
+  <path d="M8 16C10 14 13 11 17 8"/>
+</svg>
+      <h3>Gentle on Skin</h3>
+      <p>A plant-based formula made for everyday laundry and delicate fabrics.</p>
+    </div>
+
+    <div class="benefit">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
+  stroke="#8A8B66" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="2"/>
+  <path d="M12 4C13.5 6 14 7.5 12 10C10 7.5 10.5 6 12 4Z"/>
+  <path d="M20 12C18 13.5 16.5 14 14 12C16.5 10 18 10.5 20 12Z"/>
+  <path d="M12 20C10.5 18 10 16.5 12 14C14 16.5 13.5 18 12 20Z"/>
+  <path d="M4 12C6 10.5 7.5 10 10 12C7.5 14 6 13.5 4 12Z"/>
+</svg>
+      <h3>Perfume For Your Fabrics</h3>
+      <p>White Tea freshness from wash to wear.</p>
+    </div>
+
+    <div class="benefit">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
+  stroke="#8A8B66" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 3C9 7 6 10.5 6 14C6 17.3 8.7 20 12 20C15.3 20 18 17.3 18 14C18 10.5 15 7 12 3Z"/>
+</svg>
+      <h3>1 Sheet = Every Wash</h3>
+      <p>No measuring. No mess. No fuss.</p>
+    </div>
+
+  </section>
+
+
+  <!-- STORY -->
+  <!-- OUR STORY -->
+<section class="story" id="story">
+
+  <div class="story-image">
+    <img src="images/story.jpeg" alt="White Tea Signature Story">
+  </div>
+
+  <div class="story-text">
+    <span class="section-label">OUR STORY</span>
+
+    <h2>Inspired by nature.</h2>
+
+    <p>
+      White Tea Signature blends delicate white tea leaves, soft floral petals and clean cotton musk into one elegant scent.
+    </p>
+
+    <p>
+      A luxurious fragrance that lingers beautifully from wash to wear.
+    </p>
+
+  </div>
+
+</section>
+
+  
+
+
+  <!-- HOW TO USE -->
+  <!-- HOW TO USE -->
+<section class="how-to-use" id="how-to-use">
+
+    <div class="how-container">
+
+        <!-- Left -->
+        <div class="how-heading">
+            <span class="eyebrow">HOW TO USE</span>
+
+            <h2>
+                Simple.<br>
+                Easy.<br>
+                Effective.
+            </h2>
+
+            <p>
+                Thoughtfully designed for effortless laundry days.
+            </p>
+
+            <a href="#guide" class="guide-link">
+                VIEW GUIDE
+                <span>→</span>
+            </a>
+        </div>
+
+        <!-- Right -->
+        <div class="steps">
+
+            <!-- STEP 1 -->
+            <div class="step-card">
+                <img src="Images/Step1.jpeg" alt="Take one laundry sheet">
+
+                <div class="step-content">
+                    <span class="step-number">01</span>
+
+                    <h3>Tear & Take One Sheet</h3>
+
+                    <p>Slide open the drawer and gently pull out one laundry sheet.</p>
+                </div>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="step-card">
+                <img src="Images/Step2.jpeg" alt="Place into washer">
+
+                <div class="step-content">
+                    <span class="step-number">02</span>
+
+                    <h3>Place Into Washer</h3>
+
+                    <p>Place the sheet directly into the washing drum with your laundry.</p>
+                </div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="step-card">
+                <img src="Images/Step3.jpeg" alt="Fresh laundry">
+
+                <div class="step-content">
+                    <span class="step-number">03</span>
+
+                    <h3>Wash As Usual</h3>
+
+                    <p>The sheet dissolves completely, leaving clothes fresh and beautifully scented.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= LAUNDRY SHEETS ================= -->
+<!-- =========================================
+     WHITE TEA PRODUCT SECTION
+========================================= -->
+<!-- WHITE TEA SIGNATURE -->
+
+<section class="laundry-section" id="white-tea-product">
+
+  <div class="laundry-container">
+
+    <!-- Left Product Image -->
+    <div class="laundry-image" >
+      <img class="product-image"  
+      src="images/product2.jpeg" 
+      alt="White Tea Signature Laundry Sheets">
+    </div>
+
+    <!-- Right Content -->
+    <div class="laundry-content">
+
+      <span class="laundry-tag">LAUNDRY SHEETS</span>
+
+      <h2 class="product-title">White Tea Signature</h2>
+
+      <p class="laundry-desc">
+        A new way to do laundry — clean, soft and beautifully scented with just one sheet.
+      </p>
+
+      <div class="laundry-price product-price">RM34.90</div>
+
+      <div class="laundry-sub">
+        30 Sheets · Up to 60 Small Loads
+      </div>
+
+      
+      <a href="#shop" class="laundry-btn add-cart" data-product="Laundry Sheets" data-id="7">
+        Add to Cart 
+        <span>→</span>
+      </a>
+
+    </div>
+
+  </div>
+<!-- Laundry Tip -->
+<div class="laundry-tip-bar">
+
+  <span class="tip-label">✦ LAUNDRY TIP</span>
+
+  <h3>Love a stronger scent?</h3>
+
+  <p>
+    Pair your <strong>PurelyHome Laundry Sheets</strong> with our
+    <strong>Scent Booster Beads</strong> for a richer, longer-lasting fragrance.
+  </p>
+
+</div>
+</div>
+
+</section>
+  <!-- SCENT NOTES -->
+  <!-- SIGNATURE SCENTS -->
+<section class="signature-scents" id="scents">
+
+  <div class="section-title">
+    <span>SIGNATURE SCENTS</span>
+    <h2>Choose Your Signature Scent</h2>
+    <p>
+      Pick your favourite scent or layer them together for a signature
+      PurelyHome fragrance.
+    </p>
+  </div>
+
+  <div class="scent-grid">
+
+    <!-- WHITE TEA -->
+    <a  class="scent-card" id="white-tea-card">
+      <img class="card-image" src="Images/wt.jpeg" alt="White Tea">
+
+      <div class="card-info">
+        <small>MIX · MATCH · LAYER</small>
+
+        <div class="title-row">
+          <h3 class="card-title">White Tea</h3>
+          <span class="card-price">RM24.90</span>
+        </div>
+
+        <p>Fresh · Green · Everyday</p>
+
+        <div class="card-link add-cart" data-product="White Tea Signature" data-id="1">
+          Add to Cart →
+        </div>
+      </div>
+    </a>
+
+    <!-- FREESIA -->
+    <a class="scent-card" id="freesia-card">
+      <img class="card-image" src="Images/freesia.jpeg" alt="Freesia">
+
+      <div class="card-info">
+        <small>MIX · MATCH · LAYER</small>
+
+        <div class="title-row">
+          <h3 class="card-title">Freesia</h3>
+          <span class="card-price">RM24.90</span>
+        </div>
+
+        <p>Soft · Floral · Elegant</p>
+
+        <div class="card-link add-cart" data-product="Freesia" data-id="2">
+          Add to Cart →
+        </div>
+      </div>
+    </a>
+
+    <!-- AMBER NEROLI -->
+    <a class="scent-card" id="amber-card">
+      <img class="card-image" src="Images/amber.jpeg" alt="Amber Neroli">
+
+      <div class="card-info">
+        <small>MIX · MATCH · LAYER</small>
+
+        <div class="title-row">
+          <h3 class="card-title">Amber Neroli</h3>
+          <span class="card-price">RM24.90</span>
+        </div>
+
+        <p>Warm · Citrus · Cozy</p>
+
+        <div class="card-link add-cart" data-product="Amber Neroli" data-id="3">
+          Add to Cart → 
+              </div>
+      </div>
+    </a>
+
+  </div>
+
+  
+
+</section>
+
+<!-- Laundry Tip -->
+
+
+ 
+  <!-- REVIEWS -->
+<!-- ================= REVIEWS ================= -->
+
+<section class="reviews" id="reviews">
+<div class="review-container">
+    <div class="review-header">
+        <span>LOVED BY OUR COMMUNITY</span>
+
+        <h2>Beautiful laundry begins here.</h2>
+
+        <p>Real experiences from verified Shopee customers.</p>
+
+        <div class="rating-summary">
+            ★★★★★ <strong>5.0</strong>
+            <small>Based on 9 verified Shopee reviews</small>
+        </div>
+    </div>
+
+    <div class="review-grid">
+
+        <!-- Review 1 -->
+        <div class="review-card">
+
+            <div class="stars">★★★★★</div>
+
+            <p class="review-text">
+                “My first time trying these laundry sheets and I'm really happy with them.
+                They clean well and the White Tea scent smells really nice — fresh and pleasant
+                without being too strong or overpowering.”
+            </p>
+
+            
+            <div class="review-user">
+                <div>
+                    <h4>a*****v</h4>
+                    <span>Verified Shopee Customer</span>
+                </div>
+
+                <small>16 Aug 2026</small>
+            </div>
+
+        </div>
+
+        <!-- Review 2 -->
+        <div class="review-card">
+
+            <div class="stars">★★★★★</div>
+
+            <p class="review-text">
+                “Very convenient to use and no more messy liquid detergent.
+                The sheets dissolve well and clothes come out clean with a nice fresh smell.
+                Easy to store and bring when travelling too.”
+            </p>
+
+            
+
+            <div class="review-user">
+                <div>
+                    <h4>z******n</h4>
+                    <span>Verified Shopee Customer</span>
+                </div>
+
+                <small>24 Aug 2026</small>
+            </div>
+
+        </div>
+
+        <!-- Review 3 -->
+        <div class="review-card">
+
+            <div class="stars">★★★★★</div>
+
+            <p class="review-text">
+                “Received the laundry sheets and I'm really happy with it!
+                The scent is so fresh and nice, not too strong but still lasts beautifully on the clothes.
+                Will definitely repurchase again.”
+            </p>
+
+           
+            <div class="review-user">
+                <div>
+                    <h4>fx38sosob_</h4>
+                    <span>Verified Shopee Customer</span>
+                </div>
+
+                <small>24 Aug 2026</small>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</section>
+ 
+
+<!-- ================= FAQ SECTION ================= -->
+<section class="faq" id="faq">
+
+  <div class="faq-container">
+
+    <div class="faq-heading">
+     
+      <h2>Before your first wash.</h2>
+      <p>Everything you might want to know about PurelyHome Laundry Sheets.</p>
+    </div>
+
+    <!-- FAQ 1 -->
+    <div class="faq-item active">
+      <button class="faq-question">
+        <span>How many washes are included in one box?</span>
+        <span class="faq-icon">−</span>
+      </button>
+
+      <div class="faq-answer">
+        Each box contains <strong>30 laundry sheets</strong>, enough for up to
+        <strong>60 small loads</strong> or around <strong>30 regular loads</strong>.
+      </div>
+    </div>
+
+    <!-- FAQ 2 -->
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>How many sheets should I use?</span>
+        <span class="faq-icon">+</span>
+      </button>
+
+      <div class="faq-answer">
+        Use <strong>1 sheet</strong> for everyday laundry and
+        <strong>2 sheets</strong> for larger or heavily soiled loads.
+      </div>
+    </div>
+
+    <!-- FAQ 3 -->
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Will the sheet dissolve completely?</span>
+        <span class="faq-icon">+</span>
+      </button>
+
+      <div class="faq-answer">
+        Yes. PurelyHome Laundry Sheets dissolve completely in both
+        cold and warm water without leaving residue on your clothes.
+      </div>
+    </div>
+
+    <!-- FAQ 4 -->
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Is it safe for babies and sensitive skin?</span>
+        <span class="faq-icon">+</span>
+      </button>
+
+      <div class="faq-answer">
+        Yes. Our gentle plant-based formula is suitable for everyday family
+        laundry, including baby clothes and delicate fabrics.
+      </div>
+    </div>
+
+  </div>
+
+</section>
+  
+
+<!-- ================= PURELYHOME LUXURY FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-container">
+
+
+    <h2>A softer way to do laundry.</h2>
+
+    <p class="footer-text">
+      Clean. Soft. Beautifully scented for everyday living.
+    </p>
+
+    <!-- Social -->
+    <div class="footer-social">
+
+  <a href="https://www.instagram.com/purelyhome.my?stkn=Ym05aXM5dnVsdHRj&utm_source=qr" target="_blank">
+    <i class="fab fa-instagram"></i>
+    <span>Instagram</span>
+  </a>
+
+  <a href="https://shopee.com.my/purelyhome.my" target="_blank">
+    <i class="fas fa-bag-shopping"></i>
+    <span>Shopee</span>
+  </a>
+
+  <a href="https://www.facebook.com/share/18RmDBbLZ5/" target="_blank">
+    <i class="fab fa-facebook-f"></i>
+    <span>Facebook</span>
+  </a>
+
+</div>
+    <!-- Policies -->
+    <div class="footer-links">
+      <a href="shipping-policy.html">Shipping</a>
+      <a href="refund-policy.html">Returns</a>
+      <a href="privacy-policy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+
+  
+
+    <div class="footer-divider"></div>
+
+    <p class="copyright">
+      © 2026 PurelyHome. All rights reserved.
+    </p>
+
+  </div>
+</footer>
+
+  <script type="module"  src="script.js"></script>
+
+  
+<!-- Shopping Cart Drawer -->
+<div id="cart-drawer" class="cart-drawer">
+
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <button id="close-cart">✕</button>
+  </div>
+
+  <div id="cart-items" class="cart-items">
+    <p class="empty-cart">Your cart is empty.</p>
+  </div>
+
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total</span>
+      <strong id="cart-total">RM0.00</strong>
+    </div>
+
+    <button class="checkout-btn">
+      Checkout
+    </button>
+  </div>
+
+</div>
+
+<div id="cart-overlay" class="cart-overlay"></div>
+
+
+<!-- ================= CONTACT US FLOATING BUTTON ================= -->
+<a
+  href="https://wa.me/60142108984?text=Hi%20PurelyHome!%20I'd%20like%20to%20ask%20about%20your%20laundry%20sheets."
+  target="_blank"
+  class="contact-floating"
+>
+  <span class="contact-icon">💬</span>
+  <span class="contact-text">Contact Us</span>
+</a>
+
+</body>
+</html> 
