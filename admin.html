@@ -6,18 +6,18 @@
 <head>
 
 <script type="module">
-  import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-  const supabase = createClient(
-    "YOUR_SUPABASE_URL",
-    "YOUR_SUPABASE_ANON_KEY"
-  );
+const supabase = createClient(
+  "https://rwlfjnygdhdbwcjlhprf.supabase.co",
+  "sb_publishable_XjxwgUAH7t1udPhpxLqPcw_SFNxh9w0"
+);
 
-  const { data: { session } } = await supabase.auth.getSession();
+const { data: { session } } = await supabase.auth.getSession();
 
-  if (!session) {
-    window.location.href = "/admin-login.html";
-  }
+if (!session) {
+  window.location.replace("/admin-login.html");
+}
 </script>
 
 
