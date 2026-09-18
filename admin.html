@@ -5,15 +5,18 @@
 
 <head>
 
+<script type="module">
+  import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-  <script>
-  const ADMIN_PASSWORD = "ICANFLY!"; // 改成你自己的密码
+  const supabase = createClient(
+    "YOUR_SUPABASE_URL",
+    "YOUR_SUPABASE_ANON_KEY"
+  );
 
-  const enteredPassword = prompt("🔒 PurelyHome Admin\n\nEnter admin password:");
+  const { data: { session } } = await supabase.auth.getSession();
 
-  if (enteredPassword !== ADMIN_PASSWORD) {
-    alert("Incorrect password.");
-    window.location.href = "/";
+  if (!session) {
+    window.location.href = "/admin-login.html";
   }
 </script>
 

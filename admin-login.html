@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PurelyHome Admin Login</title>
+  <script type="module">
+    import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
+    const supabase = createClient(
+      "https://rwlfjnygdhdbwcjlhprf.supabase.co",
+      "sb_publishable_XjxwgUAH7t1udPhpxLqPcw_SFNxh9w0"
+    );
+
+    window.login = async () => {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) {
+        alert("Wrong email or password.");
+        return;
+      }
+
+      window.location.href = "/admin.html";
+    };
+  </script>
+</head>
+<body style="font-family:Arial;background:#F8F7F4;display:flex;justify-content:center;align-items:center;height:100vh;">
+  <div style="background:white;padding:40px;border-radius:16px;width:320px;box-shadow:0 10px 30px rgba(0,0,0,.08);">
+    <h2 style="text-align:center;color:#5F6756;">PurelyHome Admin</h2>
+
+    <input id="email" placeholder="Email"
+      style="width:100%;padding:12px;margin:12px 0;border:1px solid #ddd;border-radius:8px;">
+
+    <input id="password" type="password" placeholder="Password"
+      style="width:100%;padding:12px;margin-bottom:20px;border:1px solid #ddd;border-radius:8px;">
+
+    <button onclick="login()"
+      style="width:100%;padding:12px;background:#5F6756;color:white;border:none;border-radius:999px;font-weight:bold;">
+      Login
+    </button>
+  </div>
+</body>
+</html>
