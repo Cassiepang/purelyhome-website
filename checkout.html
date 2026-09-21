@@ -244,6 +244,55 @@ html, body {
 #state:invalid{
     color:#A89A8A;
 }
+
+/* ===== Promo Code ===== */
+
+.promo-box{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:18px 0 12px;
+}
+
+.promo-box input{
+  flex:1;
+  height:44px;
+  border:1px solid #E9E4DA;
+  border-radius:12px;
+  padding:0 14px;
+  background:#FAF8F5;
+  font-size:14px;
+}
+
+.promo-box button{
+  height:44px;
+  min-width:88px;
+  border:none;
+  border-radius:12px;
+  background:#6E7550;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.promo-box button:hover {
+  background: #616845;
+}
+
+.promo-note{
+  margin-top:12px;
+  padding:12px 14px;
+  background:#F7F4EA;
+  border-radius:12px;
+  color:#5F6756;
+  font-size:13px;
+  line-height:1.5;
+}
+
+.promo-note strong{
+  font-weight:600;
+}
+
 </style>
 
 </head>
@@ -352,10 +401,34 @@ html, body {
     <span id="items-total">RM0.00</span>
 </div>
 
+
 <div class="summary-line">
     <span>Shipping</span>
     <span id="shipping-price">RM0.00</span>
 </div>
+
+
+<div class="summary-line discount-row" id="discount-row" style="display:none;">
+  <span>WELCOME10 (10%)</span>
+  <span id="discount-price">- RM0.00</span>
+</div>
+
+
+<div class="promo-box">
+  <input
+    id="promo-code"
+    type="text"
+    placeholder="Promo code"
+  />
+  <button id="apply-promo">Apply</button>
+</div>
+
+<p id="promo-message"></p>
+
+<div class="promo-note">
+  🎁 Website Exclusive • First order gets 10% OFF with <strong>WELCOME10</strong>.
+</div>
+
 
 
 <div class="summary-total">
@@ -363,9 +436,7 @@ html, body {
     <strong id="order-total">RM0.00</strong>
 </div>
 
-<p class="shipping-note">
-    🚚 Free shipping on East Malaysia orders over RM120.
-</p>
+
 
   <button class="place-order">Place Order</button>
 </div>
@@ -397,6 +468,7 @@ const orderId = params.get("id");
 document.getElementById("order-id").textContent =
   orderId ? "#" + orderId : "Will be generated after payment";
 
+  
 /* -------------------------
    Cart + Total
 -------------------------- */
@@ -413,6 +485,8 @@ let total = 0;
 
 const FREE_SHIPPING_AMOUNT = 120;
 const SHIPPING_FEE = 8;
+
+
 
 container.innerHTML = "";
 
@@ -458,21 +532,70 @@ function updateShipping() {
         shippingFee = total >= 120 ? 0 : 8;
     }
 
-    const grandTotal = total + shippingFee;
+   const grandTotal = total + shippingFee;
 
-    itemsTotalEl.textContent = `RM ${total.toFixed(2)}`;
-    shippingEl.textContent =
-        shippingFee === 0 ? "FREE" : `RM ${shippingFee.toFixed(2)}`;
-    totalEl.textContent = `RM ${grandTotal.toFixed(2)}`;
+// Welcome10 折扣（只折商品）
+const discountAmount = promoApplied ? total * 0.10 : 0;
 
+// 最后金额
+const finalTotal = grandTotal - discountAmount;
+
+
+// 显示 Discount 行
+if (promoApplied) {
+  discountRow.style.display = "flex";
+  discountPrice.textContent = `- RM ${discountAmount.toFixed(2)}`;
+} else {
+  discountRow.style.display = "none";
+}
+
+itemsTotalEl.textContent = `RM ${total.toFixed(2)}`;
+shippingEl.textContent =
+  shippingFee === 0 ? "FREE" : `RM ${shippingFee.toFixed(2)}`;
+
+totalEl.textContent = `RM ${finalTotal.toFixed(2)}`;
     return shippingFee;
 }
 
 // Update whenever customer changes state
 stateSelect.addEventListener("change", updateShipping);
 
+// ===== WELCOME10 Promo =====
+let promoApplied = false;
+let discountAmount = 0;
+
+
+const discountRow = document.getElementById("discount-row");
+const discountPrice = document.getElementById("discount-price");
+
 // Run once when page loads
 updateShipping();
+
+
+
+
+document.getElementById("apply-promo").addEventListener("click", () => {
+  const code = document
+    .getElementById("promo-code")
+    .value.trim()
+    .toUpperCase();
+
+  if (code === "WELCOME10") {
+    promoApplied = true;
+    discountAmount = total * 0.10; // 10% 只折商品
+
+    document.getElementById("promo-message").innerHTML =
+      "🎉 WELCOME10 applied!";
+  } else {
+    promoApplied = false;
+    discountAmount = 0;
+
+    document.getElementById("promo-message").innerHTML =
+      "Invalid promo code.";
+  }
+
+  updateShipping();
+});
 
 /* -------------------------
    Place Order
@@ -483,8 +606,12 @@ placeOrderBtn.addEventListener("click", async () => {
   const cart = JSON.parse(localStorage.getItem("checkoutCart")) || [];
   const total = Number(localStorage.getItem("checkoutTotal")) || 0;
 
-   const shippingFee = updateShipping();
-const totalPrice = total + shippingFee;
+  const shippingFee = updateShipping();
+
+const discountAmount = promoApplied ? total * 0.10 : 0;
+const finalTotal = total + shippingFee - discountAmount;
+
+
  const fullName = document.getElementById("fullName").value.trim();
 const email = document.getElementById("email").value.trim();
 const phone = document.getElementById("phone").value.trim();
@@ -499,6 +626,36 @@ const state = stateSelect.value;
     alert("Please fill in your shipping information.");
     return;
   }
+
+  // ===== Record WELCOME10 usage =====
+if (promoApplied) {
+  const { data: existingPromo } = await supabase
+    .from("promo_usage")
+    .select("id")
+    .eq("email", email)
+    .eq("promo_code", "WELCOME10")
+    .maybeSingle();
+
+  if (existingPromo) {
+    alert("WELCOME10 has already been used with this email.");
+    return;
+  }
+
+  const { error: promoError } = await supabase
+    .from("promo_usage")
+    .insert({
+      email: email,
+      promo_code: "WELCOME10",
+      amount: discountAmount
+    });
+
+  if (promoError) {
+    console.error(promoError);
+    alert("Promo code cannot be used.");
+    return;
+  }
+}
+totalEl.textContent = `RM ${finalTotal.toFixed(2)}`;
 
   placeOrderBtn.disabled = true;
   placeOrderBtn.textContent = "Saving...";
@@ -520,7 +677,9 @@ const publicId = generateOrderId();
         notes:notes,
         total: total,
         shipping_fee: shippingFee,
-        total_price : totalPrice,
+        total_price : finalTotal,
+        discount: discountAmount,
+        promo_code: promoApplied ? "Welcome" : null,
       }
     ])
     .select()
@@ -545,7 +704,7 @@ const orderEmail = {
    notes:notes,
   total: Number(total),
   shipping_fee: Number(shippingFee),
-  total_price: Number(totalPrice)
+  total_price: Number(finalTotal)
 };
 
 const { data: emailData, error: emailError } =
