@@ -650,9 +650,13 @@ if (promoApplied) {
     });
 
   if (promoError) {
-    console.error(promoError);
-    alert("Promo code cannot be used.");
-    return;
+  console.error("Promo insert failed:", promoError);
+  alert(
+    "Promo error: " +
+    promoError.code + " - " +
+    promoError.message
+  );
+  return;
   }
 }
 totalEl.textContent = `RM ${finalTotal.toFixed(2)}`;
